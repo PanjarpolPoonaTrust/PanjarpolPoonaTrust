@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poona Panjarpole Trust</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .products-table td {
+      color: #000000 !important;  /* Pure black color with !important */
+      font-weight: normal !important;
+    }
+    .products-table td[data-i18n] {
+      color: #000000 !important;  /* Pure black color with !important */
+      font-weight: normal !important;
+    }
+    .products-table td:first-child {
+      color: #000000 !important;  /* Black color for serial numbers */
+      font-weight: normal !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fade-in overlay -->
+  <div id="site-fadein-overlay">
+    <span class="fadein-namaste">NAMASTE</span>
+  </div>
+
+  
+  <a href="upi://pay?pa=Mswipe.1400041924000711@kotak&pn=PoonaPanjarpoleTrust&cu=INR&tn=Donation" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
+  <header>
+    <div class="header-content">
+      <div class="title-row">
+        <button class="hamburger-menu" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="media/elephant1.png" alt="Elephant Left" class="elephant-image">
+        <h1 data-i18n="title" class="site-title">Poona Panjarpole Trust</h1>
+        <img src="media/elephant2.png" alt="Elephant Right" class="elephant-image">
+        <div class="lang-container">
+          <select id="languageSwitcher">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="mr">मराठी</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <header class="second-header">
+    <div class="header-content">
+      <div class="title-row">
+        <nav class="main-nav">
+          <a href="#" class="active"><span class="nav-icon">🏠</span> <span data-i18n="nav_home">Home</span></a>
+          <a href="#about"><span class="nav-icon">👤</span> <span data-i18n="nav_about">About Us</span></a>
+          <a href="#mission"><span class="nav-icon">🎯</span> <span data-i18n="nav_mission">Our Mission</span></a>
+          <a href="#gallery"><span class="nav-icon">🖼️</span> <span data-i18n="nav_gallery">Gallery</span></a>
+          <a href="#products"><span class="nav-icon">🛒</span> <span data-i18n="nav_products">Products for Sale</span></a>
+          <a href="#gau-chalisha"><span class="nav-icon">📖</span> <span data-i18n="nav_gau_chalisha">Gau Chalisa</span></a>
+          <a href="#donate"><span class="nav-icon">💝</span> <span data-i18n="nav_support">Support Us</span></a>
+          <a href="#volunteer"><span class="nav-icon">🤝</span> <span data-i18n="nav_volunteer">Volunteer</span></a>
+          <a href="#contact"><span class="nav-icon">📞</span> <span data-i18n="nav_contact">Contact Us</span></a>
+          <a href="#satellite_view"><span class="nav-icon">🌐</span> <span data-i18n="nav_satellite">3D Satellite View</span></a>
+          <a href="treatment-options.html"><span class="nav-icon">💊</span> <span data-i18n="nav_treatment">Treatment Options</span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2 data-i18n="about_title">About Us</h2>
+      <p data-i18n="about_text">The Pune Panjarpole Trust, established in 1855, is a sanctuary for over 2,200 cattle. 
+                                Located in Bhosari, the Trust provides shelter, food, and medical care to abandoned 
+                                and aging cattle. Our mission is to create a compassionate environment where every 
+                                animal is treated with dignity and respect. We are committed to sustainable cattle 
+                                farming and community welfare, blending tradition with modern care.</p>
+    </section>
+
+    <section id="mission">
+      <h2 data-i18n="mission_title">Our Mission</h2>
+      <p data-i18n="mission_text">To create a sustainable and sacred environment for the welfare of cows and humanity. We strive to promote ethical cattle farming, educate the community, and inspire compassion for all living beings. Our trust is dedicated to providing lifelong care, medical support, and a loving home for every animal in need.</p>
+    </section>
+
+    <section id="testimonials">
+      <h2 data-i18n="testimonials_title">Testimonials</h2>
+      <div class="testimonial-list">
+        <div class="testimonial">
+          <p data-i18n="testimonial_1">"The trust is doing amazing work for animal welfare. I was moved by the care and love shown to every animal."</p>
+          <span data-i18n="testimonial_1_author">- Aarti, Volunteer</span>
+        </div>
+        <div class="testimonial">
+          <p data-i18n="testimonial_2">"Donating to Poona Panjarpole Trust was the best decision. I can see the impact of my contribution."</p>
+          <span data-i18n="testimonial_2_author">- Rajesh, Donor</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="volunteer">
+      <h2 data-i18n="volunteer_title">Volunteer / Join Us</h2>
+      <p data-i18n="volunteer_text">We welcome volunteers and supporters! Whether you want to help with daily care, organize events, or spread awareness, your contribution matters.</p>
+      <form class="volunteer-form" id="volunteerForm">
+        <input type="text" id="volunteerName" placeholder="Your Name" required data-i18n-placeholder="volunteer_form_name">
+        <input type="email" id="volunteerEmail" placeholder="Your Email" required data-i18n-placeholder="volunteer_form_email">
+        <textarea id="volunteerHelp" placeholder="How would you like to help?" required data-i18n-placeholder="volunteer_form_help"></textarea>
+        <button type="submit" data-i18n="volunteer_form_submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="gallery">
+      <h2 data-i18n="gallery_title">Gallery</h2>
+      <div id="galleryCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active"><img src="media/image1.png" class="d-block w-100 gallery-image" alt="Image 1"></div>
+          <div class="carousel-item"><img src="media/image2.png" class="d-block w-100 gallery-image" alt="Image 2"></div>
+          <div class="carousel-item"><img src="media/image3.png" class="d-block w-100 gallery-image" alt="Image 3"></div>
+          <div class="carousel-item"><img src="media/image4.png" class="d-block w-100 gallery-image" alt="Image 4"></div>
+          <div class="carousel-item"><img src="media/image5.png" class="d-block w-100 gallery-image" alt="Image 5"></div>
+          <div class="carousel-item"><img src="media/image6.png" class="d-block w-100 gallery-image" alt="Image 6"></div>
+          <div class="carousel-item"><img src="media/image7.png" class="d-block w-100 gallery-image" alt="Image 7"></div>
+          <div class="carousel-item"><img src="media/image8.png" class="d-block w-100 gallery-image" alt="Image 8"></div>
+          <div class="carousel-item"><img src="media/image9.png" class="d-block w-100 gallery-image" alt="Image 9"></div>
+          <div class="carousel-item"><img src="media/image10.png" class="d-block w-100 gallery-image" alt="Image 10"></div>
+        </div>
+        <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#galleryCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="products-title">Products for Sale</h2>
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th data-i18n="sno">S.No.</th>
+              <th data-i18n="product">Product</th>
+              <!-- <th data-i18n="price">Price (₹)</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="s1">1</td>
+              <td data-i18n="ghee">Ghee</td>
+              <!-- <td data-i18n="price-ghee">2,000/L</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s2">2</td>
+              <td data-i18n="buttermilk">Buttermilk</td>
+              <!-- <td data-i18n="price-buttermilk">20/L</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s3">3</td>
+              <td data-i18n="biological-letter(jaivik-khat)">Biological Letter (Jaivik Khat)</td>
+              <!-- <td data-i18n="price-biological-letter">20/Kg</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s4">4</td>
+              <td data-i18n="vermi-compost(gandul-khat)">Vermi Compost (Gandul Khat)</td>
+              <!-- <td data-i18n="price-vermi-compost">25/Kg</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s5">5</td>
+              <td data-i18n="vermiwash(vermi-wash)">Vermiwash</td>
+              <!-- <td data-i18n="price-vermiwash">60/L</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s6">6</td>
+              <td data-i18n="dashparni-ark">Disharine Extract (Darshparni Ark)</td>
+              <!-- <td data-i18n="price-dashparni-ark">120/L</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s7">7</td>
+              <td data-i18n="gomutra">Gomutra</td>
+              <!-- <td data-i18n="price-gomutra">30/L</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s8">8</td>
+              <td data-i18n="gokrupamrit">Gokrupamrit</td>
+              <!-- <td data-i18n="price-gokrupamrit">30/L</td> -->
+            </tr>
+            <tr>
+              <td data-i18n="s9">9</td>
+              <td data-i18n="cow-dung-cake">Cow Dung Cake</td>
+              <!-- <td data-i18n="price-cow-dung-cake">5/Piece</td> -->
+            </tr>
+          </tbody>
+        </table>
+        <p class="products-note" data-i18n="products_note">*All the aforementioned products are available solely through offline purchase at our sacred premises</p>
+      </div>
+    </section>
+    
+    <section id="gau-chalisha" class="gau-chalisha-section">
+      <h2 class="section-title" data-i18n="gau-chalisha-title">गौ चालीसा</h2>
+      <div class="book-container">
+        <div class="book">
+          <div class="page" id="page1">
+            <div class="page-content chalisa-flex">
+              <img src="media/elephant1.png" alt="Gau Mata Left" class="chalisa-elephant left-elephant">
+              <div class="chalisa-text">
+                <h3>॥ दोहा ॥</h3>
+                <p>गऊ हमारी मातु है, हम पाले संतान।<br>
+                गऊ सेवा से मिलेगा, सब सुख संपति खान॥</p>
+              </div>
+              <img src="media/elephant2.png" alt="Gau Mata Right" class="chalisa-elephant right-elephant">
+            </div>
+          </div>
+          <div class="page" id="page2">
+            <div class="page-content chalisa-flex">
+              <img src="media/elephant1.png" alt="Gau Mata Left" class="chalisa-elephant left-elephant">
+              <div class="chalisa-text">
+                <h3>॥ चौपाई ॥</h3>
+                <p>जय गऊ माता कृपा तुम्हारी।<br>
+                दूर करो भवसागर भारी॥</p>
+                <p>गऊ ही ब्रह्मा, विष्णु गऊ।<br>
+                गऊ ही शिवरूप समऊ॥</p>
+                <p>गऊ में बास करे सब देव।<br>
+                गऊ सदा करे भव से सेव॥</p>
+              </div>
+              <img src="media/elephant2.png" alt="Gau Mata Right" class="chalisa-elephant right-elephant">
+            </div>
+          </div>
+          <div class="page" id="page3">
+            <div class="page-content chalisa-flex">
+              <img src="media/elephant1.png" alt="Gau Mata Left" class="chalisa-elephant left-elephant">
+              <div class="chalisa-text">
+                <p>गऊ चरन धरती पर ध्यानी।<br>
+                गऊ बिना जीवन अज्ञानी॥</p>
+                <p>गऊ दूध अमृत के समाना।<br>
+                जीवन का यह सच्चा खजाना॥</p>
+                <p>गऊ माता की जो सेवा।<br>
+                पावे जीवन में अमिट मेवा॥</p>
+                <p>गऊ को जो ग्रास खिलावे।<br>
+                उसका हर संकट टल जावे॥</p>
+              </div>
+              <img src="media/elephant2.png" alt="Gau Mata Right" class="chalisa-elephant right-elephant">
+            </div>
+          </div>
+          <div class="page" id="page4">
+            <div class="page-content chalisa-flex">
+              <img src="media/elephant1.png" alt="Gau Mata Left" class="chalisa-elephant left-elephant">
+              <div class="chalisa-text">
+                <p>गऊ की जो करे पूजा।<br>
+                भवसागर से पावे दूजा॥</p>
+                <p>गऊ रक्षा धर्म महान।<br>
+                गऊ वंश बढ़ावे खान॥</p>
+                <p>गऊ माता करे रखवाली।<br>
+                सदा बनी रहे घर में खुशहाली॥</p>
+                <p>जो करे गऊ माता की सेवा।<br>
+                उसका जीवन होवे मेवा॥</p>
+              </div>
+              <img src="media/elephant2.png" alt="Gau Mata Right" class="chalisa-elephant right-elephant">
+            </div>
+          </div>
+          <div class="page" id="page5">
+            <div class="page-content chalisa-flex">
+              <img src="media/elephant1.png" alt="Gau Mata Left" class="chalisa-elephant left-elephant">
+              <div class="chalisa-text">
+                <p>गऊ माता से नाता जोड़ो।<br>
+                अपने जीवन को उजियारा करो॥</p>
+                <p>जो गऊ को मारन धावे।<br>
+                वह नरक कुंड में जावे॥</p>
+                <p>गऊ माता को जो अपनाए।<br>
+                सात जनम सुख पावे॥</p>
+              </div>
+              <img src="media/elephant2.png" alt="Gau Mata Right" class="chalisa-elephant right-elephant">
+            </div>
+          </div>
+          <div class="page" id="page6">
+            <div class="page-content chalisa-flex">
+              <img src="media/elephant1.png" alt="Gau Mata Left" class="chalisa-elephant left-elephant">
+              <div class="chalisa-text">
+                <h3>॥ समापन दोहा ॥</h3>
+                <p>गऊ चालीसा जो कोई गावे।<br>
+                भवसागर से पार वो जावे॥</p>
+                <p>गऊ कृपा से जोड़े नाता।<br>
+                सफल हो जीवन, हर दिन पावन भ्राता॥</p>
+              </div>
+              <img src="media/elephant2.png" alt="Gau Mata Right" class="chalisa-elephant right-elephant">
+            </div>
+          </div>
+        </div>
+        <div class="book-controls">
+          <button class="prev-page" onclick="prevPage()">← पिछला पृष्ठ</button>
+          <span class="page-number">पृष्ठ <span id="current-page">1</span> / 6</span>
+          <button class="next-page" onclick="nextPage()">अगला पृष्ठ →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="donate" class="section" data-aos="fade-up">
+      <div class="container text-center">
+        <h2 data-i18n="support_title">Support Us: Donate for the Future of Cows</h2>
+        <p data-i18n="support_text">Your donations help us feed and care for over 2,200 cattle. Every rupee counts!</p>
+        <div class="qr-code">
+          <img src="media/qr-code_final.jpg" alt="QR Code for Donations" class="img-fluid">
+        </div>
+        <div class="bank-details">
+          <h5>Bank Details:</h5>
+          <p><strong>Poona Panjarpole Trust</strong></p>
+          <p><strong>Bank Name:</strong> DCB Bank</p>
+          <p><strong>Branch:</strong> DP Road Pune</p>
+          <p><strong>A/C No:</strong> 01413600000125</p>
+          <p><strong>IFSC:</strong> DCBL0000014</p>
+          <p><strong>UPI ID:</strong> Mswipe.1400041924000711@kotak</p>
+        </div>
+        <a href="upi://pay?pa=Mswipe.1400041924000711@kotak&pn=PoonaPanjarpoleTrust&cu=INR&tn=Donation" class="btn btn-success donate-btn">Donate Online</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact_title">Contact Us</h2>
+      <p data-i18n="contact_text">
+        Phone: 8999158881 (WhatsApp available)<br>
+        Email: punepanjarpoltrust1855@gmail.com<br>
+        Address: Pune-Nashik Highway, Bhosari, Pune – 411039
+      </p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.777225197959!2d73.8483264!3d18.6416365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c78daa88594b%3A0x48269788935abadd!2sPanjarpol%20%E0%A4%AA%E0%A4%BE%E0%A4%82%E0%A4%9A%E0%A4%B0%E0%A4%AA%E0%A5%8B%E0%A4%B3%20%E0%A4%97%E0%A5%8C%E0%A4%B7%E0%A4%BE%E0%A4%B3%E0%A4%BE!5e0!3m2!1sen!2sin!4v1716284024190!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    
+
+    <section id="satellite_view">
+      <h2 data-i18n="satellite_view_title">3D Satellite View</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!4v1748248205514!6m8!1m7!1sN_AsvIcu7j2EVBNyjcMO9A!2m2!1d18.64139095681827!2d73.85071435754628!3f111.62566725136558!4f-16.404613328355467!5f0.7820865974627469" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+  </main>
+
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+  <footer>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/share/1ATGtWdcEq/" target="_blank" class="social-link" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/punepanjarpoltrust?igsh=MXY4bmR2cnd2ajhuaQ==" target="_blank" class="social-link" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+    </div>
+    <form class="newsletter-form">
+      <label for="newsletter-email" data-i18n="newsletter_label">Subscribe to our newsletter:</label>
+      <input type="email" id="newsletter-email" placeholder="Your email" required data-i18n-placeholder="newsletter_placeholder">
+      <button type="submit" data-i18n="newsletter_submit">Subscribe</button>
+    </form>
+    <p data-i18n="footer">© 2025 Poona Panjarpole Trust. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Chatbot Widget -->
+  <div id="narayan-chatbot">
+    <button id="narayan-chatbot-btn" aria-label="Open chat with NAARAD">
+      <img src="media/narad-removebg-preview.png" alt="NAARAD" class="chatbot-icon">
+    </button>
+    <div id="narayan-chatbot-window" class="closed">
+      <div class="narayan-header">NAARAD <span class="narayan-status">● online</span></div>
+      <div id="narayan-chat-messages" class="narayan-messages">
+      </div>
+    </div>
+    <div class="chat-popup">Chat with NAARAD</div>
+  </div>
+
+  <script src="lang.js"></script>
+  <script src="js/chatgpt-service.js"></script>
+  <script src="chatbot.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const overlay = document.getElementById('site-fadein-overlay');
+      
+      // Check if this is the first visit or a restart
+      const hasVisited = sessionStorage.getItem('hasVisited');
+      
+      if (!hasVisited) {
+        // Show overlay only on first visit
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+          overlay.classList.add('fadeout');
+          setTimeout(() => { overlay.style.display = 'none'; }, 800);
+        }, 2000);
+        
+        // Set the flag in sessionStorage
+        sessionStorage.setItem('hasVisited', 'true');
+      } else {
+        // Hide overlay immediately if not first visit
+        overlay.style.display = 'none';
+      }
+
+      // Hamburger menu functionality
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mainNav = document.querySelector('.main-nav');
+      const body = document.body;
+
+      function toggleMenu() {
+        mainNav.classList.toggle('active');
+        if (mainNav.classList.contains('active')) {
+          body.style.overflow = 'hidden';
+        } else {
+          body.style.overflow = '';
+        }
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking the X button
+      mainNav.addEventListener('click', function(e) {
+        if (e.target === this || e.target.tagName === 'A') {
+          mainNav.classList.remove('active');
+          body.style.overflow = '';
+        }
+      });
+
+      // Initialize gallery carousel with auto-scroll
+      $('#galleryCarousel').carousel({
+        interval: 3000  // 3 seconds
+      });
+      
+      // Make donate button draggable only on mobile
+      const donateBtn = document.querySelector('.donate-sidebar');
+      let isDragging = false;
+      let currentX;
+      let currentY;
+      let initialX;
+      let initialY;
+      let xOffset = 0;
+      let yOffset = 0;
+
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function dragStart(e) {
+        if (!isMobile()) return;
+        
+        if (e.type === "touchstart") {
+          initialX = e.touches[0].clientX - xOffset;
+          initialY = e.touches[0].clientY - yOffset;
+        } else {
+          initialX = e.clientX - xOffset;
+          initialY = e.clientY - yOffset;
+        }
+
+        if (e.target === donateBtn) {
+          isDragging = true;
+          donateBtn.classList.add('dragging');
+        }
+      }
+
+      function dragEnd(e) {
+        if (!isMobile()) return;
+        
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+        donateBtn.classList.remove('dragging');
+      }
+
+      function drag(e) {
+        if (!isMobile()) return;
+        
+        if (isDragging) {
+          e.preventDefault();
+
+          if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+            currentY = e.touches[0].clientY - initialY;
+          } else {
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+          }
+
+          xOffset = currentX;
+          yOffset = currentY;
+
+          setTranslate(currentX, currentY, donateBtn);
+        }
+      }
+
+      function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+      }
+
+      // Only add drag event listeners on mobile
+      if (isMobile()) {
+        donateBtn.addEventListener("touchstart", dragStart, false);
+        donateBtn.addEventListener("touchend", dragEnd, false);
+        donateBtn.addEventListener("touchmove", drag, false);
+
+        donateBtn.addEventListener("mousedown", dragStart, false);
+        donateBtn.addEventListener("mouseup", dragEnd, false);
+        donateBtn.addEventListener("mousemove", drag, false);
+      }
+
+      // Scroll to top button functionality
+      const scrollToTopBtn = document.getElementById('scrollToTop');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      });
+
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Initialize Gau Chalisha book
+      let currentPage = 1;
+      const totalPages = 6;
+      const pages = document.querySelectorAll('.page');
+      
+      // Show first page
+      pages[0].classList.add('active');
+      
+      // Update page number display
+      document.getElementById('current-page').textContent = currentPage;
+    });
+
+    // Page turning functions
+    function nextPage() {
+      const pages = document.querySelectorAll('.page');
+      const currentPage = parseInt(document.getElementById('current-page').textContent);
+      
+      if (currentPage < pages.length) {
+        const currentPageElement = pages[currentPage - 1];
+        const nextPageElement = pages[currentPage];
+        
+        // Start turning animation
+        currentPageElement.classList.add('turning');
+        
+        // After animation completes, switch pages
+        setTimeout(() => {
+          currentPageElement.classList.remove('active', 'turning');
+          nextPageElement.classList.add('active');
+          document.getElementById('current-page').textContent = currentPage + 1;
+        }, 500);
+      }
+    }
+
+    function prevPage() {
+      const pages = document.querySelectorAll('.page');
+      const currentPage = parseInt(document.getElementById('current-page').textContent);
+      
+      if (currentPage > 1) {
+        const currentPageElement = pages[currentPage - 1];
+        const prevPageElement = pages[currentPage - 2];
+        
+        // Start turning animation
+        currentPageElement.classList.add('turning');
+        
+        // After animation completes, switch pages
+        setTimeout(() => {
+          currentPageElement.classList.remove('active', 'turning');
+          prevPageElement.classList.add('active');
+          document.getElementById('current-page').textContent = currentPage - 1;
+        }, 500);
+      }
+    }
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') {
+        nextPage();
+      } else if (e.key === 'ArrowLeft') {
+        prevPage();
+      }
+    });
+
+    document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('volunteerName').value;
+      const email = document.getElementById('volunteerEmail').value;
+      const helpText = document.getElementById('volunteerHelp').value;
+      
+      // Generate email content
+      const subject = 'New Volunteer Interest - Poona Panjarpole Trust';
+      const body = `Dear Poona Panjarpole Trust Team,
+
+I hope this email finds you well. I am writing to express my interest in volunteering with your esteemed organization.
+
+Name: ${name}
+Email: ${email}
+
+I would like to contribute in the following way:
+${helpText}
+
+I am excited about the opportunity to work with Poona Panjarpole Trust and contribute to your noble cause of animal welfare. I look forward to hearing from you about how I can best serve the organization.
+
+Thank you for considering my application.
+
+Best regards,
+${name}`;
+
+      // Create Gmail URL with pre-filled content
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=punepanjarpoltrust1855@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open Gmail in a new tab
+      window.open(gmailUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
+
