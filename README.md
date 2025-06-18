@@ -1,4 +1,4 @@
-# 🐄 Panjarpol Poona Trust – Cattle Farm Website
+# 🐄 Panjarpol Poona Trust – Cattle Farm Website : https://panjarpolpoonatrust.github.io/PanjarpolPoonaTrust/
 
 Welcome to the official repository for the Panjarpol Poona Trust's cattle farm website. This project aims to provide a comprehensive digital presence for the trust, highlighting its mission, services, and initiatives dedicated to the care and welfare of cattle.
 
@@ -20,7 +20,7 @@ This repository contains the source code for the Panjarpol Poona Trust's officia
 * `mobile.css`: CSS file for mobile-specific styling.
 * `script.js`: General JavaScript functionalities.
 * `styles.css`: Main stylesheet for the website.
-* `translations.json`: Contains translation data for multiple languages.([kwch.com][3], [panjarapol.in][4])
+* `translations.json`: Contains translation data for multiple languages.([kwch.com][3], [[panjarapol.in](https://panjarpolpoonatrust.github.io/PanjarpolPoonaTrust/)][4])
 
 ## 🚀 Features
 
