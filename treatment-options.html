@@ -26,6 +26,7 @@
   </div>
 
   <a href="upi://pay?pa=Mswipe.1400041924000711@kotak&pn=PoonaPanjarpoleTrust&cu=INR&tn=Donation" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
+  <a href="#" class="callnow-sidebar" id="callNowBtn"><img src="media/telephone.png" alt="Call Now" style="width:96px;height:96px;object-fit:contain;display:block;margin:0 auto;"> </a>
   
   <header>
     <div class="header-content">
@@ -180,6 +181,14 @@
   <div class="chat-popup">Chat with NAARAD</div>
 </div>
 
+<!-- Modal for desktop call info -->
+<div id="callNowModal" class="callnow-modal" style="display:none;">
+  <div class="callnow-modal-content">
+    <span class="callnow-modal-close">&times;</span>
+    <p>Call us at <strong>8999158881</strong></p>
+  </div>
+</div>
+
 <script src="lang.js"></script>
 <script src="js/chatgpt-service.js"></script>
 <script src="chatbot.js"></script>
@@ -302,6 +311,32 @@
       donateBtn.addEventListener("mouseup", dragEnd, false);
       donateBtn.addEventListener("mousemove", drag, false);
     }
+
+    // Call Now button functionality
+    const callNowBtn = document.getElementById('callNowBtn');
+    const callNowModal = document.getElementById('callNowModal');
+    const callNowModalClose = document.querySelector('.callnow-modal-close');
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+    }
+    callNowBtn.addEventListener('click', function(e) {
+      if (isMobileDevice()) {
+        window.location.href = 'tel:8999158881';
+      } else {
+        e.preventDefault();
+        callNowModal.style.display = 'block';
+      }
+    });
+    if (callNowModalClose) {
+      callNowModalClose.onclick = function() {
+        callNowModal.style.display = 'none';
+      };
+    }
+    window.onclick = function(event) {
+      if (event.target === callNowModal) {
+        callNowModal.style.display = 'none';
+      }
+    };
   });
 </script>
 </body>
