@@ -71,6 +71,7 @@
       greet: "Hello! I am NAARAD, your AI assistant. Please select a question to learn more about our trust:",
       language: 'Please choose a language: <button class="narayan-lang-btn" data-lang="en">English</button> <button class="narayan-lang-btn" data-lang="hi">हिन्दी</button> <button class="narayan-lang-btn" data-lang="mr">मराठी</button>',
       setlang: 'Language set to: ',
+      other: 'Other',
       questions: [
         {
           q: "What is Poona Panjarpole Trust?",
@@ -98,6 +99,7 @@
       greet: "नमस्ते! मैं NAARAD हूं, आपकी AI सहायक। कृपया हमारे ट्रस्ट के बारे में अधिक जानने के लिए एक प्रश्न चुनें:",
       language: 'कृपया भाषा चुनें: <button class="narayan-lang-btn" data-lang="en">English</button> <button class="narayan-lang-btn" data-lang="hi">हिन्दी</button> <button class="narayan-lang-btn" data-lang="mr">मराठी</button>',
       setlang: 'भाषा सेट की गई: ',
+      other: 'अन्य',
       questions: [
         {
           q: "पूना पंजरपोल ट्रस्ट क्या है?",
@@ -125,6 +127,7 @@
       greet: "नमस्कार! मी NAARAD आहे, तुमची AI सहाय्यक. कृपया आमच्या ट्रस्टबद्दल अधिक जाणून घेण्यासाठी एक प्रश्न निवडा:",
       language: 'कृपया भाषा निवडा: <button class="narayan-lang-btn" data-lang="en">English</button> <button class="narayan-lang-btn" data-lang="hi">हिन्दी</button> <button class="narayan-lang-btn" data-lang="mr">मराठी</button>',
       setlang: 'भाषा सेट केली: ',
+      other: 'इतर',
       questions: [
         {
           q: "पूना पंजरपोल ट्रस्ट म्हणजे काय?",
@@ -169,11 +172,10 @@
 
   // Add bot message with typing animation
   async function addBotMessageWithTyping(msg) {
+    if (!msg || (typeof msg === 'string' && msg.trim() === '')) return;
     const typingIndicator = addTypingIndicator();
-    
     await new Promise(resolve => setTimeout(resolve, 1500));
     removeTypingIndicator(typingIndicator);
-    
     const div = document.createElement('div');
     div.className = 'narayan-message narayan-bot';
     div.innerHTML = msg;
@@ -253,9 +255,29 @@
     questions.forEach(q => {
       questionsHtml += `<button class="question-btn" data-question="${q.q}" data-answer="${q.a}">${q.q}</button>`;
     });
+    questionsHtml += `<button class="question-btn other-btn">${botTexts[narayanLang].other}</button>`;
     questionsHtml += '</div>';
     addBotMessageWithTyping(questionsHtml);
   }
+
+  // Listen for 'Other' button click and show input
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('other-btn')) {
+      const inputHtml = `
+        <div class="other-input-container">
+          <input type="text" id="other-message" placeholder="Type your message..." style="width: 70%; padding: 0.5em; margin-right: 0.5em;">
+          <button id="send-other-btn" style="padding: 0.5em 1em;">Send</button>
+        </div>
+      `;
+      addBotMessageWithTyping(inputHtml);
+    }
+    if (e.target && e.target.id === 'send-other-btn') {
+      const msg = document.getElementById('other-message').value.trim();
+      if (msg) {
+        window.open(`https://wa.me/918999158881?text=${encodeURIComponent(msg)}`, '_blank');
+      }
+    }
+  });
 
   // On load, check for existing chat history
   if (!windowEl.classList.contains('closed')) {
