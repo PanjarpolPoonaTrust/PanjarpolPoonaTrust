@@ -4,11 +4,14 @@
   body {
     font-size: 16px;
     line-height: 1.5;
+    margin: 0;
+    padding: 0;
   }
 
   /* Header adjustments */
   header {
     padding: 0;
+    margin: 0;
     position: relative;
     z-index: 1;
   }
@@ -745,5 +748,46 @@
   .donate-sidebar:hover {
     transform: scale(1.07);
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  }
+}
+
+.callnow-sidebar {
+  position: fixed;
+  right: 10px;
+  top: 70%;
+  z-index: 50;
+  background: none;
+  color: #007a4a;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  min-width: 55px;
+  min-height: 75px;
+  box-shadow: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.callnow-sidebar img {
+  width: 100%;
+  height: 100%;
+  max-width: 55px;
+  max-height: 75px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+@media screen and (max-width: 480px) {
+  .callnow-sidebar {
+    min-width: 45px;
+    min-height: 65px;
+  }
+  .callnow-sidebar img {
+    max-width: 45px;
+    max-height: 65px;
   }
 }
