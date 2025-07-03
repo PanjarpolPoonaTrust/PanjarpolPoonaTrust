@@ -317,21 +317,38 @@
       <div class="container text-center">
         <h2 data-i18n="support_title">Support Us: Donate for the Future of Cows</h2>
         <p data-i18n="support_text">Your donations help us feed and care for over 2,200 cattle. Every rupee counts!</p>
-        <div class="qr-code">
-          <img src="media/qr-code_final.jpg" alt="QR Code for Donations" class="img-fluid">
-        </div>
-        <div class="bank-details">
-          <h5>Bank Details:</h5>
-          <p><strong>Poona Panjarpole Trust</strong></p>
-          <p><strong>Bank Name:</strong> DCB Bank</p>
-          <p><strong>Branch:</strong> DP Road Pune</p>
-          <p><strong>A/C No:</strong> 01413600000125</p>
-          <p><strong>IFSC:</strong> DCBL0000014</p>
-          <p><strong>UPI ID:</strong> Mswipe.1400041924000711@kotak</p>
-        </div>
-        <a href="upi://pay?pa=Mswipe.1400041924000711@kotak&pn=PoonaPanjarpoleTrust&cu=INR&tn=Donation" class="btn btn-success donate-btn">Donate Online</a>
+        <!-- New Donate Now Button -->
+        <button id="donate-modal-btn" class="donate-modal-btn" data-i18n="donate_now" style="background:#ffd98c;color:#6b3e00;border:2px solid #b8860b;border-radius:8px;padding:0.7em 1.5em;font-size:1.1em;font-weight:bold;box-shadow:0 2px 8px rgba(0,0,0,0.10);cursor:pointer;">Donate Now</button>
       </div>
     </section>
+
+    <!-- Modal Blur Background -->
+    <div id="donate-modal-blur"></div>
+    <!-- Modal Window -->
+    <div id="donate-modal">
+      <button class="close-btn" id="donate-modal-close" title="Close">&times;</button>
+      <div class="donate-modal-tabs">
+        <div class="donate-modal-tab active" id="donate-tab-upi">UPI</div>
+        <div class="donate-modal-tab" id="donate-tab-netbanking">Netbanking</div>
+      </div>
+      <div class="donate-modal-content donate-modal-upi active" id="donate-content-upi">
+        <img src="media/qr-code_final.jpg" alt="UPI QR Code for Donation" />
+        <div style="font-size:1.1em;margin-bottom:0.5em;">UPI ID: <b>Mswipe.1400041924000711@kotak</b></div>
+        <div style="font-size:0.95em;color:#b8860b;">Scan the QR code or use the UPI ID in your payment app.</div>
+      </div>
+      <div class="donate-modal-content donate-modal-netbanking" id="donate-content-netbanking">
+        <div style="font-size:1.1em;margin-bottom:0.5em;"><b>Bank Details:</b></div>
+        <div style="text-align:left;display:inline-block;line-height:1.7;font-size:1em;">
+          <b>Account Name:</b> Poona Panjarpole Trust<br>
+          <b>Bank Name:</b> DCB Bank<br>
+          <b>Branch:</b> DP Road Pune<br>
+          <b>A/C No:</b> 01413600000125<br>
+          <b>IFSC:</b> DCBL0000014<br>
+          <b>UPI ID:</b> Mswipe.1400041924000711@kotak
+        </div>
+      </div>
+      <a href="https://forms.gle/your-google-form-link" id="donate-modal-form-btn" class="donate-modal-form-btn" data-i18n="donate_form_btn" target="_blank" style="margin-top:0.7em;background:linear-gradient(135deg,#ffd98c 0%,#ffcc66 100%);color:#6b3e00;border:2px solid #b8860b;border-radius:8px;padding:0.4em 1.2em;font-size:0.98em;font-weight:600;cursor:pointer;transition:background 0.2s;display:inline-block;">Fill this form after the payment for receipt</a>
+    </div>
 
     <section id="contact">
       <h2 data-i18n="contact_title">Contact Us</h2>
@@ -660,6 +677,48 @@ ${name}`;
       // Open Gmail in a new tab
       window.open(gmailUrl, '_blank');
     });
+
+    // Donate Modal Logic
+    (function() {
+      const donateBtn = document.getElementById('donate-modal-btn');
+      const modal = document.getElementById('donate-modal');
+      const blur = document.getElementById('donate-modal-blur');
+      const closeBtn = document.getElementById('donate-modal-close');
+      const tabUPI = document.getElementById('donate-tab-upi');
+      const tabNet = document.getElementById('donate-tab-netbanking');
+      const contentUPI = document.getElementById('donate-content-upi');
+      const contentNet = document.getElementById('donate-content-netbanking');
+      const formBtn = document.getElementById('donate-modal-form-btn');
+
+      function openModal() {
+        modal.style.display = 'block';
+        blur.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.style.display = 'none';
+        blur.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+      donateBtn.onclick = openModal;
+      closeBtn.onclick = closeModal;
+      blur.onclick = closeModal;
+      // Tab switching
+      tabUPI.onclick = function() {
+        tabUPI.classList.add('active');
+        tabNet.classList.remove('active');
+        contentUPI.classList.add('active');
+        contentNet.classList.remove('active');
+      };
+      tabNet.onclick = function() {
+        tabNet.classList.add('active');
+        tabUPI.classList.remove('active');
+        contentNet.classList.add('active');
+        contentUPI.classList.remove('active');
+      };
+      // Form button (replace # with your form link)
+      formBtn.href = 'https://forms.gle/your-google-form-link'; // TODO: Replace with your actual form link
+    })();
   </script>
 </body>
 </html>
