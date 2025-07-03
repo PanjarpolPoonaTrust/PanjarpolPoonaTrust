@@ -32,12 +32,20 @@ function applyTranslations() {
 // Initialize language switcher on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   const switcher = document.getElementById('languageSwitcher');
-  switcher.addEventListener('change', e => {
-    const selectedLang = e.target.value;
-    loadTranslations(selectedLang);
-  });
-
-  loadTranslations('en'); // Default language on load
+  // Get saved language from localStorage, fallback to 'en'
+  const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+  // Set dropdown to saved language
+  if (switcher) switcher.value = savedLang;
+  // Load translations for saved language
+  loadTranslations(savedLang);
+  // On change, update localStorage and translations
+  if (switcher) {
+    switcher.addEventListener('change', e => {
+      const selectedLang = e.target.value;
+      localStorage.setItem('selectedLanguage', selectedLang);
+      loadTranslations(selectedLang);
+    });
+  }
 });
 
 const translations = {
