@@ -4,6 +4,7 @@
   const windowEl = document.getElementById('narayan-chatbot-window');
   const messages = document.getElementById('narayan-chat-messages');
   const chatPopup = document.querySelector('.chat-popup');
+  const callNowBtn = document.getElementById('callNowBtn');
 
   // Chat history storage
   const CHAT_HISTORY_KEY = 'narayan_chat_history';
@@ -208,6 +209,7 @@
   btn.addEventListener('click', () => {
     windowEl.classList.toggle('closed');
     if (!windowEl.classList.contains('closed')) {
+      if (callNowBtn) callNowBtn.style.display = 'none';
       chatPopup.style.display = 'none';
       setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 100);
       if (!langChosen) {
@@ -219,6 +221,7 @@
         }
       }
     } else {
+      if (callNowBtn) callNowBtn.style.display = '';
       chatPopup.style.display = 'block';
     }
   });
