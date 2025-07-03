@@ -109,7 +109,9 @@
     "nav_contact": "Contact Us",
     "nav_satellite": "3D Satellite View",
     "nav_treatment": "Treatment Options",
-    "nav_home": "Home"
+    "nav_home": "Home",
+    "donate_now": "Donate Now",
+    "donate_form_btn": "Fill this form after the payment for receipt"
   },
   "hi": {
     "title": "पूना पंजरपोल ट्रस्ट",
@@ -221,7 +223,9 @@
     "nav_contact": "संपर्क करें",
     "nav_satellite": "3डी उपग्रह दृश्य",
     "nav_treatment": "उपचार विकल्प",
-    "nav_home": "होम"
+    "nav_home": "होम",
+    "donate_now": "दान करें",
+    "donate_form_btn": "रसीद के लिए पेमेंट के बाद यह फॉर्म भरें"
   },
   "mr": {
     "title": "पुणे पांजरपोळ ट्रस्ट",
@@ -332,6 +336,8 @@
     "nav_contact": "संपर्क साधा",
     "nav_satellite": "3डी उपग्रह दृश्य",
     "nav_treatment": "उपचार पर्याय",
-    "nav_home": "मुख्यपृष्ठ"
+    "nav_home": "मुख्यपृष्ठ",
+    "donate_now": "दान करा",
+    "donate_form_btn": "पावतीसाठी पेमेंट केल्यानंतर हा फॉर्म भरा"
   }
 }
