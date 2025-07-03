@@ -1459,34 +1459,41 @@ iframe {
   }
 }
 
+/* Circular background for Call Now button (always visible, matches scroll-to-top) */
 .callnow-sidebar {
   position: fixed;
-  right: 0;
-  top: 40%;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: #007a4a;
-  font-size: 1em;
-  font-weight: normal;
-  padding: 0;
+  bottom: 140px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  background-color: #ffcc66;
+  color: #4b2e00;
+  border: 2px solid #4b2e00;
+  border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.2s;
-  animation: none;
-  filter: none;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1002;
+  opacity: 1;
+  visibility: visible;
+}
+.callnow-sidebar img {
+  width: 75%;
+  height: 75%;
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+  display: block;
+  margin: 0;
 }
 .callnow-sidebar:hover {
-  transform: scale(1.07);
-}
-.callnow-label {
-  margin-top: 8px;
-  font-size: 1em;
+  background-color: #ffd700;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Modal for desktop call info */
@@ -1522,44 +1529,19 @@ iframe {
 }
 
 @media (max-width: 600px) {
-  .callnow-sidebar {
-    font-size: 0.75em;
-    padding: 0.1em 0.25em 0.6em 0.25em;
-    min-width: 30px;
-    min-height: 40px;
-    top: 30%;
-  }
+  /* Remove .callnow-sidebar override for font-size, padding, min-width, min-height, and top */
 }
 
 @media screen and (min-width: 769px) {
   .callnow-sidebar {
-    position: fixed;
-    right: 20px;
-    top: 25%;
-    z-index: 1000;
-    background: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0;
-    min-width: unset;
-    min-height: unset;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    cursor: pointer;
-    transition: transform 0.2s;
+    width: 60px;
+    height: 60px;
   }
   .callnow-sidebar img {
-    width: 96px;
-    height: 96px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-  }
-  .callnow-sidebar:hover {
-    transform: scale(1.07);
+    width: 80%;
+    height: 80%;
+    max-width: 80%;
+    max-height: 80%;
   }
 }
 
