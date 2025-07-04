@@ -64,13 +64,14 @@
           <a href="index.html#volunteer"><span class="nav-icon">🤝</span> <span data-i18n="nav_volunteer">Volunteer</span></a>
           <a href="index.html#contact"><span class="nav-icon">📞</span> <span data-i18n="nav_contact">Contact Us</span></a>
           <a href="index.html#satellite_view"><span class="nav-icon">🌐</span> <span data-i18n="nav_satellite">3D Satellite View</span></a>
+          <a href="blogs.html"><span class="nav-icon">📰</span> <span data-i18n="nav_blogs">Blogs</span></a>
           <a href="#" class="active"><span class="nav-icon">💊</span> <span data-i18n="nav_treatment">Treatment Options</span></a>
         </nav>
       </div>
     </div>
   </header>
 
-<main>
+<main id="main-content">
   <section>
     <h2 data-i18n="treatment_title">Treatment Options</h2>
     <div class="treatment-cards">
@@ -188,6 +189,12 @@
     <p>Call us at <strong>8999158881</strong></p>
   </div>
 </div>
+
+<style>
+  #main-content {
+    opacity: 0;
+  }
+</style>
 
 <script src="lang.js"></script>
 <script src="js/chatgpt-service.js"></script>
@@ -341,6 +348,14 @@
     // Update donate button href
     const formBtn = document.querySelector('.donate-sidebar');
     formBtn.href = 'https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog';
+
+    // Smooth fade-in for main content
+    const main = document.getElementById('main-content');
+    if (main) {
+      main.classList.add('animate__animated', 'animate__fadeIn');
+      main.style.setProperty('--animate-duration', '1.1s');
+      main.style.opacity = 1;
+    }
   });
 </script>
 </body>
