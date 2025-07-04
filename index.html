@@ -80,11 +80,20 @@
           <a href="#volunteer"><span class="nav-icon">🤝</span> <span data-i18n="nav_volunteer">Volunteer</span></a>
           <a href="#contact"><span class="nav-icon">📞</span> <span data-i18n="nav_contact">Contact Us</span></a>
           <a href="#satellite_view"><span class="nav-icon">🌐</span> <span data-i18n="nav_satellite">3D Satellite View</span></a>
+          <a href="blogs.html"><span class="nav-icon">📰</span> <span data-i18n="nav_blogs">Blogs</span></a>
           <a href="treatment-options.html"><span class="nav-icon">💊</span> <span data-i18n="nav_treatment">Treatment Options</span></a>
         </nav>
       </div>
     </div>
   </header>
+
+  <!-- Quote of the Day Section -->
+  <section id="quote-of-the-day" class="quote-of-the-day-section">
+    <div class="quote-container">
+      <span class="quote-label" id="quote-label" data-i18n="quote_of_the_day">Quote of the Day</span>
+      <blockquote class="quote-text"><span id="quote-text-dynamic"></span><br><span class="quote-author" id="quote-author-dynamic"></span></blockquote>
+    </div>
+  </section>
 
   <main>
     <section id="about">
@@ -412,6 +421,7 @@
   <script src="lang.js"></script>
   <script src="js/chatgpt-service.js"></script>
   <script src="chatbot.js"></script>
+  <script src="quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const overlay = document.getElementById('site-fadein-overlay');
@@ -593,6 +603,38 @@
           callNowModal.style.display = 'none';
         }
       };
+
+      // Quote of the Day logic
+      function setQuoteOfTheDay(lang) {
+        if (window.cowQuotes && window.cowQuotes[lang]) {
+          const today = new Date();
+          const start = new Date(today.getFullYear(), 0, 0);
+          const diff = today - start;
+          const oneDay = 1000 * 60 * 60 * 24;
+          const dayOfYear = Math.floor(diff / oneDay);
+          const quoteArr = window.cowQuotes[lang] || window.cowQuotes['en'];
+          const quote = quoteArr[(dayOfYear - 1) % quoteArr.length];
+          document.getElementById('quote-text-dynamic').textContent = '"' + quote + '"';
+          document.getElementById('quote-author-dynamic').textContent = '';
+          // Set the title
+          var label = document.getElementById('quote-label');
+          if (label) {
+            if (lang === 'hi') label.textContent = 'आज का सुविचार';
+            else if (lang === 'mr') label.textContent = 'आजचे सुविचार';
+            else label.textContent = 'Quote of the Day';
+          }
+        }
+      }
+
+      // Set initial quote based on language switcher
+      var langSwitcher = document.getElementById('languageSwitcher');
+      var currentLang = langSwitcher ? langSwitcher.value : 'en';
+      setQuoteOfTheDay(currentLang);
+      if (langSwitcher) {
+        langSwitcher.addEventListener('change', function() {
+          setQuoteOfTheDay(this.value);
+        });
+      }
     });
 
     // Page turning functions
