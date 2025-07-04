@@ -42,7 +42,7 @@
   </div>
 
   
-  <a href="upi://pay?pa=Mswipe.1400041924000711@kotak&pn=PoonaPanjarpoleTrust&cu=INR&tn=Donation" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
+  <a href="#" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
   <a href="#" class="callnow-sidebar" id="callNowBtn"><img src="media/telephone.png" alt="Call Now" style="width:96px;height:96px;object-fit:contain;display:block;margin:0 auto;"> </a>
   <header>
     <div class="header-content">
@@ -720,9 +720,10 @@ ${name}`;
       window.open(gmailUrl, '_blank');
     });
 
-    // Donate Modal Logic
+    // Donate Modal Logic for both sidebar and main donate buttons
     (function() {
       const donateBtn = document.getElementById('donate-modal-btn');
+      const donateSidebarBtn = document.querySelector('.donate-sidebar');
       const modal = document.getElementById('donate-modal');
       const blur = document.getElementById('donate-modal-blur');
       const closeBtn = document.getElementById('donate-modal-close');
@@ -732,7 +733,8 @@ ${name}`;
       const contentNet = document.getElementById('donate-content-netbanking');
       const formBtn = document.getElementById('donate-modal-form-btn');
 
-      function openModal() {
+      function openModal(e) {
+        if (e) e.preventDefault();
         modal.style.display = 'block';
         blur.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -742,24 +744,32 @@ ${name}`;
         blur.style.display = 'none';
         document.body.style.overflow = '';
       }
-      donateBtn.onclick = openModal;
-      closeBtn.onclick = closeModal;
-      blur.onclick = closeModal;
+      if (donateBtn) donateBtn.onclick = openModal;
+      if (donateSidebarBtn) donateSidebarBtn.onclick = openModal;
+      if (closeBtn) closeBtn.onclick = closeModal;
+      if (blur) blur.onclick = closeModal;
       // Tab switching
-      tabUPI.onclick = function() {
-        tabUPI.classList.add('active');
-        tabNet.classList.remove('active');
-        contentUPI.classList.add('active');
-        contentNet.classList.remove('active');
-      };
-      tabNet.onclick = function() {
-        tabNet.classList.add('active');
-        tabUPI.classList.remove('active');
-        contentNet.classList.add('active');
-        contentUPI.classList.remove('active');
-      };
+      if (tabUPI && tabNet && contentUPI && contentNet) {
+        tabUPI.onclick = function() {
+          tabUPI.classList.add('active');
+          tabNet.classList.remove('active');
+          contentUPI.classList.add('active');
+          contentNet.classList.remove('active');
+        };
+        tabNet.onclick = function() {
+          tabNet.classList.add('active');
+          tabUPI.classList.remove('active');
+          contentNet.classList.add('active');
+          contentUPI.classList.remove('active');
+        };
+      }
       // Form button (replace # with your form link)
-      formBtn.href = 'https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog';
+      if (formBtn) formBtn.href = 'https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog';
+    })();
+
+    // Set a sessionStorage flag to indicate the user has visited a page in this session
+    (function() {
+      sessionStorage.setItem('hasVisitedAnyPage', 'true');
     })();
   </script>
 </body>
