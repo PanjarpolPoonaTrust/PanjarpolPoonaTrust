@@ -30,15 +30,12 @@ function applyTranslations() {
 }
 
 // Initialize language switcher on DOM load
+// Only set to English by default, do not use localStorage
+// On change, update localStorage and translations
 document.addEventListener('DOMContentLoaded', () => {
   const switcher = document.getElementById('languageSwitcher');
-  // Get saved language from localStorage, fallback to 'en'
-  const savedLang = localStorage.getItem('selectedLanguage') || 'en';
-  // Set dropdown to saved language
-  if (switcher) switcher.value = savedLang;
-  // Load translations for saved language
-  loadTranslations(savedLang);
-  // On change, update localStorage and translations
+  if (switcher) switcher.value = 'en';
+  loadTranslations('en');
   if (switcher) {
     switcher.addEventListener('change', e => {
       const selectedLang = e.target.value;
