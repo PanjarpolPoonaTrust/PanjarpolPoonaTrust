@@ -75,13 +75,13 @@
           <a href="#mission"><span class="nav-icon">🎯</span> <span data-i18n="nav_mission">Our Mission</span></a>
           <a href="#gallery"><span class="nav-icon">🖼️</span> <span data-i18n="nav_gallery">Gallery</span></a>
           <a href="#products"><span class="nav-icon">🛒</span> <span data-i18n="nav_products">Products for Sale</span></a>
-          <a href="#gau-chalisha"><span class="nav-icon">📖</span> <span data-i18n="nav_gau_chalisha">Gau Chalisa</span></a>
+          <a href="#gau-chalisha"><span class="nav-icon">🐮</span> <span data-i18n="nav_gau_chalisha">Gau Chalisa</span></a>
+          <a href="cow-blessings.html"><span class="nav-icon">🐄</span> <span data-i18n="nav_cow_blessings">Cow Blessings</span></a>
           <a href="#donate"><span class="nav-icon">💝</span> <span data-i18n="nav_support">Support Us</span></a>
           <a href="#volunteer"><span class="nav-icon">🤝</span> <span data-i18n="nav_volunteer">Volunteer</span></a>
           <a href="#contact"><span class="nav-icon">📞</span> <span data-i18n="nav_contact">Contact Us</span></a>
           <a href="#satellite_view"><span class="nav-icon">🌐</span> <span data-i18n="nav_satellite">3D Satellite View</span></a>
           <a href="blogs.html"><span class="nav-icon">📰</span> <span data-i18n="nav_blogs">Blogs</span></a>
-          <a href="treatment-options.html"><span class="nav-icon">💊</span> <span data-i18n="nav_treatment">Treatment Options</span></a>
         </nav>
       </div>
     </div>
@@ -388,12 +388,11 @@
         <i class="fab fa-instagram"></i>
         <span>Instagram</span>
       </a>
+      <a href="https://www.youtube.com/channel/UCVQvVUUyKscxYt8Ynn_zbLA" target="_blank" class="social-link" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+        <span>YouTube</span>
+      </a>
     </div>
-    <form class="newsletter-form">
-      <label for="newsletter-email" data-i18n="newsletter_label">Subscribe to our newsletter:</label>
-      <input type="email" id="newsletter-email" placeholder="Your email" required data-i18n-placeholder="newsletter_placeholder">
-      <button type="submit" data-i18n="newsletter_submit">Subscribe</button>
-    </form>
     <p data-i18n="footer">© 2025 Poona Panjarpole Trust. All Rights Reserved.</p>
   </footer>
 
@@ -424,6 +423,19 @@
   <script src="quotes.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      var switcher = document.getElementById('languageSwitcher');
+      // Use sessionStorage for session language, default to 'en' on new session
+      var savedLang = sessionStorage.getItem('selectedLanguage') || 'en';
+      if (switcher) switcher.value = savedLang;
+      if (typeof loadTranslations === 'function') loadTranslations(savedLang);
+      if (switcher) {
+        switcher.addEventListener('change', function() {
+          var lang = this.value;
+          sessionStorage.setItem('selectedLanguage', lang);
+          if (typeof loadTranslations === 'function') loadTranslations(lang);
+        });
+      }
+
       const overlay = document.getElementById('site-fadein-overlay');
       
       // Check if this is the first visit or a restart
