@@ -113,7 +113,11 @@
     "donate_now": "Donate Now",
     "donate_form_btn": "Fill this form after the payment for receipt",
     "nav_blogs": "Blogs",
-    "blogs_title": "Blogs"
+    "blogs_title": "Blogs",
+    "blogs_subtitle": "Stories, Wisdom & Inspiration from the Panjarpol",
+    "nav_cow_blessings": "Cow Blessings",
+    "cow_blessings_title": "Cow Blessings",
+    "cow_blessings_subtitle": "Celebrate the Holiness and Importance of Cows"
   },
   "hi": {
     "title": "पूना पंजरपोल ट्रस्ट",
@@ -212,7 +216,7 @@
     "faq_q2": "अगर मेरी गाय बीमार है तो क्या करें?",
     "faq_a2": "तुरंत पशु चिकित्सक से संपर्क करें। शीघ्र हस्तक्षेप आवश्यक है।",
     "faq_q3": "घर पर पशु स्वास्थ्य कैसे बनाए रखें?",
-    "faq_a3": "स्वच्छ पानी, संतुलित आहार, नियमित कीड़े मारना और स्वच्छ वातावरण दें।",
+    "faq_a3": "स्वच्छ पानी, संतुलित आहार, नियमित कीड़े मारना और स्वच्छता ठेवा.",
     "cta_title": "मदद चाहिए? संपर्क करें!",
     "cta_text": "अगर आपके पशु को चिकित्सा सहायता चाहिए या कोई सवाल है, <a href=\"mailto:punepanjarpoltrust1855@gmail.com?subject=Veterinary Help\">ईमेल करें</a> किंवा <strong>8999158881</strong> (WhatsApp उपलब्ध) वर कॉल करें।",
     "nav_about": "हमारे बारे में",
@@ -229,7 +233,11 @@
     "donate_now": "दान करें",
     "donate_form_btn": "रसीद के लिए पेमेंट के बाद यह फॉर्म भरें",
     "nav_blogs": "ब्लॉग्स",
-    "blogs_title": "ब्लॉग्स"
+    "blogs_title": "ब्लॉग्स",
+    "blogs_subtitle": "पंजरपोल से कहानियाँ, ज्ञान और प्रेरणा",
+    "nav_cow_blessings": "गौ-आशीर्वाद",
+    "cow_blessings_title": "गौ-आशीर्वाद",
+    "cow_blessings_subtitle": "गायों के पवित्र उपहार और महत्व को जानें"
   },
   "mr": {
     "title": "पुणे पांजरपोळ ट्रस्ट",
@@ -344,6 +352,10 @@
     "donate_now": "दान करा",
     "donate_form_btn": "पावतीसाठी पेमेंट केल्यानंतर हा फॉर्म भरा",
     "nav_blogs": "ब्लॉग्स",
-    "blogs_title": "ब्लॉग्स"
+    "blogs_title": "ब्लॉग्स",
+    "blogs_subtitle": "पंजरपोलमधील कथा, शहाणपण आणि प्रेरणा",
+    "nav_cow_blessings": "गाय आशीर्वाद",
+    "cow_blessings_title": "गाय आशीर्वाद",
+    "cow_blessings_subtitle": "गायांच्या पवित्र देणग्या आणि महत्त्व जाणून घ्या"
   }
 }
