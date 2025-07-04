@@ -286,6 +286,56 @@ document.addEventListener('DOMContentLoaded', function() {
     main.style.setProperty('--animate-duration', '1.1s');
     main.style.opacity = 1;
   }
+
+  // Hamburger menu functionality
+  const hamburger = document.querySelector('.hamburger-menu');
+  const mainNav = document.querySelector('.main-nav');
+  const body = document.body;
+
+  function toggleMenu() {
+    mainNav.classList.toggle('active');
+    if (mainNav.classList.contains('active')) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking the X button or a nav link
+  mainNav.addEventListener('click', function(e) {
+    if (e.target === this || e.target.tagName === 'A') {
+      mainNav.classList.remove('active');
+      body.style.overflow = '';
+    }
+  });
+
+  // Call Now button functionality
+  const callNowBtn = document.getElementById('callNowBtn');
+  const callNowModal = document.getElementById('callNowModal');
+  const callNowModalClose = document.querySelector('.callnow-modal-close');
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+  }
+  callNowBtn.addEventListener('click', function(e) {
+    if (isMobileDevice()) {
+      window.location.href = 'tel:8999158881';
+    } else {
+      e.preventDefault();
+      callNowModal.style.display = 'block';
+    }
+  });
+  if (callNowModalClose) {
+    callNowModalClose.onclick = function() {
+      callNowModal.style.display = 'none';
+    };
+  }
+  window.onclick = function(event) {
+    if (event.target === callNowModal) {
+      callNowModal.style.display = 'none';
+    }
+  };
 });
 </script>
 </body>
