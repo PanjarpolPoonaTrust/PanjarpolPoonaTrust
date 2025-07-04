@@ -1706,3 +1706,179 @@ iframe {
 #about {
   margin-top: 0;
 }
+
+.blog-card {
+  background: #fffbe9;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 1.5em 1.2em 1em 1.2em;
+  margin: 1.5em auto;
+  max-width: 600px;
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+.blog-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+.blog-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.blog-icon {
+  font-size: 1.5em;
+}
+.blog-content {
+  font-size: 1.08em;
+  margin-bottom: 1em;
+  color: #4b2e00;
+}
+.blog-actions {
+  display: flex;
+  gap: 1.2em;
+  margin-bottom: 0.5em;
+  align-items: center;
+}
+.like-btn, .comment-btn, .share-btn {
+  background: #ffe0a3;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  color: #a86a00;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.like-btn:hover, .comment-btn:hover, .share-btn:hover {
+  background: #ffd580;
+  color: #7a4a00;
+}
+.blog-comments {
+  margin-top: 1em;
+  background: #fff7e0;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  font-size: 0.98em;
+}
+.blog-comment-form {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+.blog-comment-form input, .blog-comment-form textarea {
+  flex: 1;
+  border-radius: 5px;
+  border: 1px solid #e6b84d;
+  padding: 0.4em 0.7em;
+  font-size: 1em;
+}
+.blog-comment-form button {
+  background: #ffcc66;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4em 1em;
+  font-weight: 600;
+  color: #4b2e00;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.blog-comment-form button:hover {
+  background: #ffd580;
+}
+.blog-comment {
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ffe0a3;
+  padding-bottom: 0.3em;
+}
+
+.blogs-section-title {
+  text-align: center;
+  margin: 2.5em 0 2em 0;
+  position: relative;
+}
+.blogs-title-icon {
+  font-size: 2.5em;
+  display: block;
+  margin-bottom: 0.2em;
+  color: #ffb300;
+  filter: drop-shadow(0 2px 6px #ffe0a3);
+}
+.blogs-title-main {
+  font-size: 2.3em;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #a86a00;
+  margin: 0.1em 0 0.2em 0;
+  text-shadow: 0 2px 8px #ffe0a3;
+  display: inline-block;
+}
+.blogs-title-sub {
+  font-size: 1.1em;
+  color: #7a4a00;
+  margin-bottom: 0.7em;
+  font-style: italic;
+  opacity: 0.85;
+}
+.blogs-title-divider {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #ffcc66 0%, #ffe0a3 100%);
+  border-radius: 3px;
+  margin: 0.7em auto 0 auto;
+  box-shadow: 0 2px 8px #ffe0a3;
+}
+
+.cow-blessings-section-title {
+  text-align: center;
+  margin: 2.5em 0 2em 0;
+  position: relative;
+}
+.cow-blessings-title-icon {
+  font-size: 2.5em;
+  display: block;
+  margin-bottom: 0.2em;
+  color: #ffb300;
+  filter: drop-shadow(0 2px 6px #ffe0a3);
+}
+.cow-blessings-title-main {
+  font-size: 2.3em;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #a86a00;
+  margin: 0.1em 0 0.2em 0;
+  text-shadow: 0 2px 8px #ffe0a3;
+  display: inline-block;
+}
+.cow-blessings-title-sub {
+  font-size: 1.1em;
+  color: #7a4a00;
+  margin-bottom: 0.7em;
+  font-style: italic;
+  opacity: 0.85;
+}
+.cow-blessings-title-divider {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #ffcc66 0%, #ffe0a3 100%);
+  border-radius: 3px;
+  margin: 0.7em auto 0 auto;
+  box-shadow: 0 2px 8px #ffe0a3;
+}
+
+/* Center align cow blessing cards and set background to white */
+#cow-blessings-cards {
+  justify-content: center;
+}
+#cow-blessings-cards .blog-card {
+  background: #fffbe9;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
