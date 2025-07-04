@@ -285,7 +285,7 @@ main {
   padding: 2em;
   max-width: 800px;
   margin: auto;
-  margin-top: 120px;
+  margin-top: 0;
 }
 
 section {
@@ -1641,4 +1641,68 @@ iframe {
   .donate-modal-content img {
     max-width: 90vw;
   }
+}
+
+/* Quote of the Day Section */
+.quote-of-the-day-section {
+  margin: 32px auto 0 auto;
+  max-width: 600px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.7); /* semi-transparent white */
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4px;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-label {
+  font-size: 1.22em;
+  font-weight: 800;
+  color: #6b3e00;
+  margin-bottom: 0.3em;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.quote-text {
+  font-size: 1.13em;
+  font-style: italic;
+  color: #333;
+  margin: 0;
+  opacity: 0.92;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.98em;
+  color: #6b3e00;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .quote-of-the-day-section {
+    max-width: 95vw;
+    padding: 12px 8vw;
+    font-size: 0.98em;
+  }
+  .quote-text {
+    font-size: 1em;
+  }
+}
+
+#about {
+  margin-top: 0;
 }
