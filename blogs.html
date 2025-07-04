@@ -60,12 +60,12 @@
           <a href="index.html#gallery"><span class="nav-icon">🖼️</span> <span data-i18n="nav_gallery">Gallery</span></a>
           <a href="index.html#products"><span class="nav-icon">🛒</span> <span data-i18n="nav_products">Products for Sale</span></a>
           <a href="index.html#gau-chalisha"><span class="nav-icon">🐮</span> <span data-i18n="nav_gau_chalisha">Gau Chalisa</span></a>
+          <a href="cow-blessings.html"><span class="nav-icon">🐄</span> <span data-i18n="nav_cow_blessings">Cow Blessings</span></a>
           <a href="index.html#donate"><span class="nav-icon">💝</span> <span data-i18n="nav_support">Support Us</span></a>
           <a href="index.html#volunteer"><span class="nav-icon">🤝</span> <span data-i18n="nav_volunteer">Volunteer</span></a>
           <a href="index.html#contact"><span class="nav-icon">📞</span> <span data-i18n="nav_contact">Contact Us</span></a>
           <a href="index.html#satellite_view"><span class="nav-icon">🌐</span> <span data-i18n="nav_satellite">3D Satellite View</span></a>
           <a href="blogs.html" class="active"><span class="nav-icon">📰</span> <span data-i18n="nav_blogs">Blogs</span></a>
-          <a href="treatment-options.html"><span class="nav-icon">💊</span> <span data-i18n="nav_treatment">Treatment Options</span></a>
         </nav>
       </div>
     </div>
@@ -73,7 +73,12 @@
 
 <main id="main-content">
   <section>
-    <h2 data-i18n="blogs_title">Blogs</h2>
+    <div class="blogs-section-title">
+      <span class="blogs-title-icon">📰</span>
+      <h2 data-i18n="blogs_title" class="blogs-title-main">Blogs</h2>
+      <div class="blogs-title-sub" data-i18n="blogs_subtitle">Stories, Wisdom & Inspiration from the Panjarpol</div>
+      <div class="blogs-title-divider"></div>
+    </div>
     <div class="blogs-cards" id="blogs-cards">
       <!-- Blog cards will be injected here by JS for i18n support -->
     </div>
@@ -92,12 +97,11 @@
       <i class="fab fa-instagram"></i>
       <span>Instagram</span>
     </a>
+    <a href="https://www.youtube.com/channel/UCVQvVUUyKscxYt8Ynn_zbLA" target="_blank" class="social-link" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+      <span>YouTube</span>
+    </a>
   </div>
-  <form class="newsletter-form">
-    <label for="newsletter-email" data-i18n="newsletter_label">Subscribe to our newsletter:</label>
-    <input type="email" id="newsletter-email" placeholder="Your email" required data-i18n-placeholder="newsletter_placeholder">
-    <button type="submit" data-i18n="newsletter_submit">Subscribe</button>
-  </form>
   <p data-i18n="footer">© 2025 Poona Panjarpole Trust. All Rights Reserved.</p>
 </footer>
 
@@ -160,149 +164,170 @@
 <script src="js/chatgpt-service.js"></script>
 <script src="chatbot.js"></script>
 <script>
-// Blog data for all languages
-const blogsData = {
-  en: [
-    {
-      sr: '1',
-      icon: '🐄',
-      title: 'Why Protecting Cows Matters',
-      content: `Cows are not just animals—they are the foundation of rural life and ecological balance in India. They provide milk that nourishes families, while their dung and urine serve as natural fertilizers and pest repellents in farming. Indigenous breeds are resilient to climate and disease, making them vital for sustainable agriculture. By protecting cows, we preserve biodiversity, support rural livelihoods, and reduce dependence on chemical inputs. It's not just about tradition—it's about health, sustainability, and respect for nature. Cow protection is a step toward self-reliant and eco-conscious living.`
-    },
-    {
-      sr: '2',
-      icon: '🔥',
-      title: 'How Dung Cakes Help Farmers',
-      content: `Dung cakes, made from dried cow dung, are an age-old resource still vital in rural India. They serve as an affordable, renewable source of fuel for cooking and heating, especially where access to gas is limited. Unlike wood, dung cakes produce less smoke and help reduce deforestation. Additionally, cow dung is used as an organic fertilizer that enriches soil and supports healthy crop growth. It also has antimicrobial properties, making it useful for wall and floor coatings in homes. For farmers, dung cakes are more than fuel—they're a symbol of self-sufficiency and sustainability.`
-    },
-    {
-      sr: '3',
-      icon: '🌿',
-      title: 'Panchagavya and Its Ayurvedic Uses',
-      content: `Panchagavya is a sacred Ayurvedic preparation made from five cow-derived products: milk, curd, ghee, urine, and dung. This powerful blend is known to enhance immunity, purify the body, and balance the three doshas—Vata, Pitta, and Kapha. It's used in detox therapies and as a health tonic in traditional medicine. Beyond healing, Panchagavya is applied in agriculture as a natural fertilizer and pest repellent, boosting soil fertility and plant growth. Rooted in Vedic wisdom, Panchagavya exemplifies how cows support both personal health and environmental harmony.`
-    },
-    {
-      sr: '4',
-      icon: '🚜',
-      title: 'Cow-Based Farming (Gauvansha Adharit Krishi)',
-      content: `Cow-based farming promotes natural, chemical-free agriculture using cow by-products like dung and urine. Cow dung acts as a rich organic fertilizer that improves soil fertility, while cow urine is used to make bio-pesticides that protect crops without harming the environment. This method reduces farming costs and boosts long-term soil health. By avoiding synthetic chemicals, farmers not only grow safer food but also protect biodiversity and water sources. Cow-based farming offers a sustainable path forward for both small-scale farmers and large agricultural systems.`
-    },
-    {
-      sr: '5',
-      icon: '🏥',
-      title: 'Cow-Based Healthcare (Gauvansha Adharit Arogya)',
-      content: `Cow-based healthcare involves the use of cow products for natural healing and wellness. In Ayurveda, cow milk, ghee, curd, dung, and urine are all recognized for their medicinal properties. Cow ghee nourishes the brain and supports digestion, while cow urine is believed to have antibacterial and detoxifying effects. These elements are used in Ayurvedic remedies to boost immunity, cleanse the system, and manage chronic conditions. Cow-based healthcare reflects a holistic approach—aligning body, mind, and nature for long-term well-being.`
-    },
-    {
-      sr: '6',
-      icon: '🌳',
-      title: 'Cow-Based Environmental Sustainability (Gauvansha Adharit Paryavaran)',
-      content: `Cows play a vital role in protecting the environment. Their dung and urine are natural alternatives to chemical fertilizers and pesticides, reducing soil and water pollution. Cow dung is also used in biogas plants to produce clean energy, reducing reliance on firewood and fossil fuels. Even cow-based household products like incense sticks and eco-bricks help reduce plastic and carbon emissions. By supporting cow-based systems, we promote zero-waste living, circular economies, and a cleaner, greener planet.`
-    }
-  ],
-  hi: [
-    {
-      sr: '1',
-      icon: '🐄',
-      title: 'गायों की रक्षा क्यों महत्वपूर्ण है',
-      content: `गाय केवल जानवर नहीं हैं — वे भारत के ग्रामीण जीवन और पारिस्थितिक संतुलन की आधारशिला हैं। गाय का दूध परिवारों का पोषण करता है, वहीं उसका गोबर और गोमूत्र खेती में प्राकृतिक खाद और कीट नियंत्रण के लिए उपयोग होता है। देसी नस्लें जलवायु और बीमारियों के प्रति अधिक सहनशील होती हैं, जिससे वे टिकाऊ कृषि के लिए महत्वपूर्ण हैं। गायों की रक्षा कर हम जैव विविधता को संरक्षित करते हैं, ग्रामीण आजीविका को सहारा देते हैं और रसायनों पर निर्भरता घटाते हैं। यह केवल परंपरा की बात नहीं है — यह स्वास्थ्य, स्थिरता और प्रकृति के सम्मान की बात है। गो-रक्षा आत्मनिर्भर और पर्यावरण-संवेदनशील जीवन की ओर एक कदम है।`
-    },
-    {
-      sr: '2',
-      icon: '🔥',
-      title: 'गौ-गोबर के उपले किसानों की कैसे मदद करते हैं',
-      content: `गोबर के उपले, सूखे गोबर से बनाए जाते हैं और आज भी ग्रामीण भारत में अत्यंत उपयोगी हैं। ये खाना बनाने और गर्मी के लिए एक सस्ता, नवीनीकरण योग्य ईंधन स्रोत हैं, खासकर उन जगहों पर जहाँ गैस की सुविधा सीमित है। लकड़ी के मुकाबले, उपले कम धुआँ पैदा करते हैं और वनों की कटाई को भी कम करते हैं। इसके अतिरिक्त, गोबर एक जैविक खाद के रूप में मिट्टी को पोषण देता है और फसलों की सेहत को बेहतर बनाता है। इसमें रोगाणुरोधी गुण भी होते हैं, जिससे यह घरों की दीवारों और फर्श पर लेप के रूप में उपयोग होता है। किसानों के लिए, उपले सिर्फ ईंधन नहीं हैं — ये आत्मनिर्भरता और स्थिरता का प्रतीक हैं।`
-    },
-    {
-      sr: '3',
-      icon: '🌿',
-      title: 'पंचगव्य और त्याचे आयुर्वेदिक उपयोग',
-      content: `पंचगव्य हे एक पवित्र आयुर्वेदिक मिश्रण आहे, जे गायपासून मिळणाऱ्या पाच गोष्टींनी — दूध, दही, तूप, गोमूत्र आणि गोबर — तयार केलं जातं. हे शक्तिशाली मिश्रण रोगप्रतिकारक शक्ती वाढवण्यासाठी, शरीर शुद्ध करण्यासाठी आणि वात, पित्त, कफ या त्रिदोषांना संतुलित करण्यासाठी ओळखले जाते. आयुर्वेदात याचा उपयोग डिटॉक्स थेरपीसाठी आणि आरोग्यवर्धक टॉनिक म्हणून होतो. उपचारांव्यतिरिक्त, पंचगव्य शेतीमध्ये नैसर्गिक खत आणि कीडनाशक म्हणून वापरले जाते, ज्यामुळे जमिनीची सुपीकता आणि पिकांची वाढ सुधारते. वैदिक ज्ञानात रुजलेले, पंचगव्य दाखवते की गाय केवळ वैयक्तिक आरोग्य नव्हे तर पर्यावरणाच्या संतुलनासाठीही किती महत्त्वाची आहे.`
-    },
-    {
-      sr: '4',
-      icon: '🚜',
-      title: 'गौवंश आधारित शेती (गौवंश आधारित कृषि)',
-      content: `गौ-आधारित शेती ही नैसर्गिक, रसायनमुक्त शेतीला प्रोत्साहन देते, ज्यात गोबर आणि गोमूत्र यांसारख्या गाय-उत्पन्न गोष्टींचा वापर केला जातो. गोबर एक समृद्ध सेंद्रिय खत म्हणून जमिनीची सुपीकता वाढवते, तर गोमूत्र वापरून जैव-कीडनाशके तयार केली जातात, जी पिकांचे संरक्षण करतात पण पर्यावरणाला त्रास देत नाहीत. हा पद्धत शेतीचा खर्च कमी करते आणि जमिनीच्या दीर्घकालीन आरोग्याला चालना देते. रसायनांचा वापर टाळून, शेतकरी सुरक्षित अन्न पिकवतात तसेच जैवविविधता आणि जलस्रोतांचे रक्षण करतात. गौ-आधारित शेती लहान शेतकऱ्यांपासून ते मोठ्या कृषी व्यवस्थांपर्यंत एक शाश्वत पर्याय देते.`
-    },
-    {
-      sr: '5',
-      icon: '🏥',
-      title: 'गौवंश आधारित आरोग्य (गौवंश आधारित आरोग्य)',
-      content: `गौ-आधारित आरोग्य म्हणजे नैसर्गिक उपचार आणि आरोग्यवर्धनासाठी गाय-उत्पन्न गोष्टींचा उपयोग. आयुर्वेदात, गायीचं दूध, तूप, दही, गोबर आणि गोमूत्र हे सर्व औषधी गुणांसाठी ओळखले जातात. गायचं तूप मेंदूला पोषण देते आणि पचनाला मदत करते, तर गोमूत्राला जंतुनाशक आणि शरीर शुद्ध करणारे मानले जाते. हे घटक प्रतिकारशक्ती वाढवण्यासाठी, शरीर शुद्ध करण्यासाठी आणि दीर्घकालीन आजारांवर उपाय म्हणून आयुर्वेदिक उपचारांमध्ये वापरले जातात. गौ-आधारित आरोग्य ही एक समग्र पद्धत दाखवते — जी शरीर, मन आणि निसर्ग यांच्यातील संतुलन साधते.`
-    },
-    {
-      sr: '6',
-      icon: '🌳',
-      title: 'गौवंश आधारित पर्यावरण संरक्षण (गौवंश आधारित पर्यावरण)',
-      content: `गाय पर्यावरणाच्या रक्षणात महत्त्वाची भूमिका बजावतात. त्यांचा गोबर आणि गोमूत्र रासायनिक खतांना आणि कीडनाशकांना नैसर्गिक पर्याय आहेत, ज्यामुळे जमिनीचे आणि पाण्याचे प्रदूषण कमी होते. गोबराचा वापर बायोगॅस प्लांटमध्ये स्वच्छ ऊर्जा निर्मितीसाठी होतो, ज्यामुळे लाकूड आणि जीवाश्म इंधनांवरील अवलंबित्व कमी होते. अगदी गाय-आधारित घरगुती उत्पादने जसे की अगरबत्ती आणि इको-ब्रिक्स प्लास्टिक आणि कार्बन उत्सर्जन कमी करण्यास मदत करतात. गौ-आधारित प्रणालींना पाठिंबा देऊन, आपण शून्य कचरा जीवनशैली, परिपूर्ण अर्थव्यवस्था आणि स्वच्छ, हरित पृथ्वीला प्रोत्साहन देतो.`
-    }
-  ],
-  mr: [
-    {
-      sr: '1',
-      icon: '🐄',
-      title: 'गायांचे संरक्षण का महत्वाचे आहे',
-      content: `गाय फक्त प्राणी नाहीत — त्या भारतातील ग्रामीण जीवन आणि पर्यावरणीय समतोलाची आधारस्तंभ आहेत. त्यांचे दूध कुटुंबांचे पोषण करते, तर गोबर आणि गोमूत्र शेतीमध्ये नैसर्गिक खत आणि कीडनाशक म्हणून उपयोगात येतात. देशी गोवंश हवामान बदल आणि रोगांपासून अधिक सहनशील असतो, ज्यामुळे टिकाऊ शेतीसाठी ते अत्यंत महत्त्वाचे आहेत. गायांचे संरक्षण केल्याने आपण जैवविविधता जपतो, ग्रामीण उपजीविका मजबूत करतो आणि रासायनिक खतांवरची अवलंबित्व कमी करतो. हे फक्त परंपरेसाठी नाही — हे आरोग्य, शाश्वतता आणि निसर्गाच्या सन्मानासाठी आहे. गो-रक्षण म्हणजे आत्मनिर्भर आणि पर्यावरणस्नेही जीवनशैलीकडे एक पाऊल आहे.`
-    },
-    {
-      sr: '2',
-      icon: '🔥',
-      title: 'गोबरचे उपले शेतकऱ्यांना कसे मदत करतात',
-      content: `गोबरचे उपले, वाळवलेल्या गोबरापासून तयार होतात आणि आजही ग्रामीण भारतात खूप महत्त्वाचे आहेत. ते स्वयंपाक आणि उष्णतेसाठी एक स्वस्त, नवीकरणक्षम इंधन म्हणून वापरले जातात, विशेषतः जिथे गॅसची सुविधा मर्यादित आहे. लाकडाच्या तुलनेत, उपले कमी धूर निर्माण करतात आणि जंगलतोड कमी करतात. याशिवाय, गोबर जैविक खत म्हणून जमिनीत पोषण पुरवते आणि पिकांच्या वाढीस चालना देते. त्यात जंतुनाशक गुणधर्मही आहेत, ज्यामुळे घरांच्या भिंतींवर आणि जमिनीवर लेप म्हणून वापर केला जातो. शेतकऱ्यांसाठी, उपले केवळ इंधन नाहीत — ते आत्मनिर्भरता आणि शाश्वततेचे प्रतीक आहेत.`
-    },
-    {
-      sr: '3',
-      icon: '🌿',
-      title: 'पंचगव्य आणि त्याचे आयुर्वेदिक उपयोग',
-      content: `पंचगव्य हे एक पवित्र आयुर्वेदिक मिश्रण आहे, जे गायपासून मिळणाऱ्या पाच गोष्टींनी — दूध, दही, तूप, गोमूत्र आणि गोबर — तयार केलं जातं. हे शक्तिशाली मिश्रण रोगप्रतिकारक शक्ती वाढवण्यासाठी, शरीर शुद्ध करण्यासाठी आणि वात, पित्त, कफ या त्रिदोषांना संतुलित करण्यासाठी ओळखले जाते. आयुर्वेदात याचा उपयोग डिटॉक्स थेरपीसाठी आणि आरोग्यवर्धक टॉनिक म्हणून होतो. उपचारांव्यतिरिक्त, पंचगव्य शेतीमध्ये नैसर्गिक खत आणि कीडनाशक म्हणून वापरले जाते, ज्यामुळे जमिनीची सुपीकता आणि पिकांची वाढ सुधारते. वैदिक ज्ञानात रुजलेले, पंचगव्य दाखवते की गाय केवळ वैयक्तिक आरोग्य नव्हे तर पर्यावरणाच्या संतुलनासाठीही किती महत्त्वाची आहे.`
-    },
-    {
-      sr: '4',
-      icon: '🚜',
-      title: 'गौवंश आधारित शेती (गौवंश आधारित कृषि)',
-      content: `गौ-आधारित शेती ही नैसर्गिक, रसायनमुक्त शेतीला प्रोत्साहन देते, ज्यात गोबर आणि गोमूत्र यांसारख्या गाय-उत्पन्न गोष्टींचा वापर केला जातो. गोबर एक समृद्ध सेंद्रिय खत म्हणून जमिनीची सुपीकता वाढवते, तर गोमूत्र वापरून जैव-कीडनाशके तयार केली जातात, जी पिकांचे संरक्षण करतात पण पर्यावरणाला त्रास देत नाहीत. हा पद्धत शेतीचा खर्च कमी करते आणि जमिनीच्या दीर्घकालीन आरोग्याला चालना देते. रसायनांचा वापर टाळून, शेतकरी सुरक्षित अन्न पिकवतात तसेच जैवविविधता आणि जलस्रोतांचे रक्षण करतात. गौ-आधारित शेती लहान शेतकऱ्यांपासून ते मोठ्या कृषी व्यवस्थांपर्यंत एक शाश्वत पर्याय देते.`
-    },
-    {
-      sr: '5',
-      icon: '🏥',
-      title: 'गौवंश आधारित आरोग्य (गौवंश आधारित आरोग्य)',
-      content: `गौ-आधारित आरोग्य म्हणजे नैसर्गिक उपचार आणि आरोग्यवर्धनासाठी गाय-उत्पन्न गोष्टींचा उपयोग. आयुर्वेदात, गायीचं दूध, तूप, दही, गोबर आणि गोमूत्र हे सर्व औषधी गुणांसाठी ओळखले जातात. गायचं तूप मेंदूला पोषण देते आणि पचनाला मदत करते, तर गोमूत्राला जंतुनाशक आणि शरीर शुद्ध करणारे मानले जाते. हे घटक प्रतिकारशक्ती वाढवण्यासाठी, शरीर शुद्ध करण्यासाठी आणि दीर्घकालीन आजारांवर उपाय म्हणून आयुर्वेदिक उपचारांमध्ये वापरले जातात. गौ-आधारित आरोग्य ही एक समग्र पद्धत दाखवते — जी शरीर, मन आणि निसर्ग यांच्यातील संतुलन साधते.`
-    },
-    {
-      sr: '6',
-      icon: '🌳',
-      title: 'गौवंश आधारित पर्यावरण संरक्षण (गौवंश आधारित पर्यावरण)',
-      content: `गाय पर्यावरणाच्या रक्षणात महत्त्वाची भूमिका बजावतात. त्यांचा गोबर आणि गोमूत्र रासायनिक खतांना आणि कीडनाशकांना नैसर्गिक पर्याय आहेत, ज्यामुळे जमिनीचे आणि पाण्याचे प्रदूषण कमी होते. गोबराचा वापर बायोगॅस प्लांटमध्ये स्वच्छ ऊर्जा निर्मितीसाठी होतो, ज्यामुळे लाकूड आणि जीवाश्म इंधनांवरील अवलंबित्व कमी होते. अगदी गाय-आधारित घरगुती उत्पादने जसे की अगरबत्ती आणि इको-ब्रिक्स प्लास्टिक आणि कार्बन उत्सर्जन कमी करण्यास मदत करतात. गौ-आधारित प्रणालींना पाठिंबा देऊन, आपण शून्य कचरा जीवनशैली, परिपूर्ण अर्थव्यवस्था आणि स्वच्छ, हरित पृथ्वीला प्रोत्साहन देतो.`
-    }
-  ]
-};
+let blogsJsonData = [];
+
+function getCurrentLanguage() {
+  // Use the dropdown if present, else localStorage, else default to 'en'
+  const switcher = document.getElementById('languageSwitcher');
+  if (switcher && switcher.value) return switcher.value;
+  return localStorage.getItem('selectedLanguage') || 'en';
+}
+
+function setCurrentLanguage(lang) {
+  localStorage.setItem('selectedLanguage', lang);
+  const switcher = document.getElementById('languageSwitcher');
+  if (switcher) switcher.value = lang;
+}
+
+// Helper: Get unique blog key for localStorage
+function getBlogKey(blogId) {
+  return `blog_${blogId}_${getCurrentLanguage()}`;
+}
+
+// Fetch blogs.json and store globally
+async function fetchBlogsJson() {
+  try {
+    const res = await fetch('blogs.json');
+    blogsJsonData = await res.json();
+    renderBlogs(getCurrentLanguage());
+  } catch (e) {
+    document.getElementById('blogs-cards').innerHTML = '<p>Could not load blogs.</p>';
+  }
+}
 
 function renderBlogs(lang) {
-  const blogs = blogsData[lang] || blogsData['en'];
   const container = document.getElementById('blogs-cards');
   container.innerHTML = '';
-  blogs.forEach(blog => {
+  if (!blogsJsonData.length) return;
+  blogsJsonData.forEach(blog => {
+    const blogKey = getBlogKey(blog.id);
+    // Likes
+    let likes = parseInt(localStorage.getItem(blogKey + '_likes') || '0');
+    // Comments
+    let comments = [];
+    try {
+      comments = JSON.parse(localStorage.getItem(blogKey + '_comments')) || [];
+    } catch { comments = []; }
+    // Card
     const card = document.createElement('div');
     card.className = 'blog-card';
     card.innerHTML = `
-      <h3 class=\"blog-title\"><span class=\"blog-icon\">${blog.icon}</span> ${blog.title}</h3>
-      <p class=\"blog-content\">${blog.content}</p>
+      <h3 class="blog-title"><span class="blog-icon">${blog.icon}</span> ${blog.title[lang] || blog.title['en']}</h3>
+      <p class="blog-content">${blog.content[lang] || blog.content['en']}</p>
+      <div class="blog-actions">
+        <button class="like-btn" data-id="${blog.id}">👍 <span class="like-count">${likes}</span></button>
+        <button class="comment-btn" data-id="${blog.id}">💬 Comment</button>
+        <button class="share-btn" data-id="${blog.id}">🔗 Share</button>
+      </div>
+      <div class="blog-comments" id="comments-${blog.id}" style="display:none;"></div>
     `;
     container.appendChild(card);
+    // Like/Unlike button event
+    const likeBtn = card.querySelector('.like-btn');
+    let likedFlag = localStorage.getItem(blogKey + '_liked') === '1';
+    function updateLikeBtn() {
+      if (likedFlag) {
+        likeBtn.textContent = `👎 Unlike${likes > 0 ? ' (' + likes + ')' : ''}`;
+        likeBtn.disabled = false;
+        likeBtn.style.opacity = '1';
+      } else {
+        likeBtn.textContent = `👍 Like`;
+        likeBtn.disabled = false;
+        likeBtn.style.opacity = '1';
+      }
+    }
+    updateLikeBtn();
+    likeBtn.onclick = function() {
+      likedFlag = localStorage.getItem(blogKey + '_liked') === '1';
+      if (!likedFlag) {
+        likes = 1;
+        localStorage.setItem(blogKey + '_likes', likes);
+        localStorage.setItem(blogKey + '_liked', '1');
+        likedFlag = true;
+      } else {
+        likes = 0;
+        localStorage.removeItem(blogKey + '_likes');
+        localStorage.removeItem(blogKey + '_liked');
+        likedFlag = false;
+      }
+      updateLikeBtn();
+    };
+    // Comment button event
+    card.querySelector('.comment-btn').onclick = function() {
+      const commentsDiv = card.querySelector(`#comments-${blog.id}`);
+      if (commentsDiv.style.display === 'none') {
+        showComments(blog, commentsDiv, comments, blogKey);
+        commentsDiv.style.display = 'block';
+      } else {
+        commentsDiv.style.display = 'none';
+      }
+    };
+    // Share button event
+    card.querySelector('.share-btn').onclick = function() {
+      const shareUrl = window.location.origin + window.location.pathname + `#blog-${blog.id}`;
+      if (navigator.share) {
+        navigator.share({
+          title: blog.title[lang] || blog.title['en'],
+          text: blog.content[lang] || blog.content['en'],
+          url: shareUrl
+        });
+      } else {
+        navigator.clipboard.writeText(shareUrl);
+        this.textContent = '✅ Copied!';
+        setTimeout(() => { this.textContent = '🔗 Share'; }, 1200);
+      }
+    };
+    // Add anchor for direct link
+    card.id = `blog-${blog.id}`;
   });
 }
 
-// Initial render and language switcher integration
+function showComments(blog, commentsDiv, comments, blogKey) {
+  commentsDiv.innerHTML = '';
+  // List comments
+  if (comments.length) {
+    comments.forEach(c => {
+      const cDiv = document.createElement('div');
+      cDiv.className = 'blog-comment';
+      cDiv.textContent = c;
+      commentsDiv.appendChild(cDiv);
+    });
+  } else {
+    commentsDiv.innerHTML = '<div style="color:#bfa14a;">No comments yet.</div>';
+  }
+  // Add comment form
+  const form = document.createElement('form');
+  form.className = 'blog-comment-form';
+  form.innerHTML = `<input type="text" placeholder="Add a comment..." maxlength="200" required><button type="submit">Post</button>`;
+  form.onsubmit = function(e) {
+    e.preventDefault();
+    const val = form.querySelector('input').value.trim();
+    if (val) {
+      comments.push(val);
+      localStorage.setItem(blogKey + '_comments', JSON.stringify(comments));
+      showComments(blog, commentsDiv, comments, blogKey);
+    }
+    form.reset();
+  };
+  commentsDiv.appendChild(form);
+}
+
 function setupBlogsI18n() {
   const switcher = document.getElementById('languageSwitcher');
-  const savedLang = localStorage.getItem('selectedLanguage') || 'en';
-  renderBlogs(savedLang);
+  // Use localStorage or dropdown value, default to 'en'
+  let blogsLang = localStorage.getItem('selectedLanguage') || (switcher && switcher.value) || 'en';
   if (switcher) {
+    switcher.value = blogsLang;
     switcher.addEventListener('change', e => {
-      renderBlogs(e.target.value);
+      blogsLang = e.target.value;
+      setCurrentLanguage(blogsLang);
+      renderBlogs(blogsLang);
+      if (typeof loadTranslations === 'function') loadTranslations(blogsLang);
     });
   }
+  setCurrentLanguage(blogsLang);
+  if (typeof loadTranslations === 'function') loadTranslations(blogsLang);
+  fetchBlogsJson();
 }
 document.addEventListener('DOMContentLoaded', setupBlogsI18n);
 
@@ -364,6 +389,25 @@ document.addEventListener('DOMContentLoaded', function() {
       callNowModal.style.display = 'none';
     }
   };
+
+  // Force English as default on blogs page
+  var langSwitcher = document.getElementById('languageSwitcher');
+  if (langSwitcher) langSwitcher.value = 'en';
+  if (typeof loadTranslations === 'function') loadTranslations('en');
+
+  var switcher = document.getElementById('languageSwitcher');
+  var savedLang = sessionStorage.getItem('selectedLanguage') || 'en';
+  if (switcher) switcher.value = savedLang;
+  if (typeof loadTranslations === 'function') loadTranslations(savedLang);
+  if (typeof renderBlogs === 'function') renderBlogs(savedLang);
+  if (switcher) {
+    switcher.addEventListener('change', function() {
+      var lang = this.value;
+      sessionStorage.setItem('selectedLanguage', lang);
+      if (typeof loadTranslations === 'function') loadTranslations(lang);
+      if (typeof renderBlogs === 'function') renderBlogs(lang);
+    });
+  }
 });
 
 // Donate Modal Logic for both sidebar and main donate buttons
