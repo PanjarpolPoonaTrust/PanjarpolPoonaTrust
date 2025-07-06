@@ -44,6 +44,24 @@
   
   <a href="#" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
   <a href="#" class="callnow-sidebar" id="callNowBtn"><img src="media/telephone.png" alt="Call Now" style="width:96px;height:96px;object-fit:contain;display:block;margin:0 auto;"> </a>
+  
+  <!-- Social Media Toggle Button -->
+  <button class="social-toggle-btn" id="socialToggleBtn" aria-label="Toggle Social Media">
+    📢
+  </button>
+  
+  <!-- Social Media Buttons Container -->
+  <div class="social-buttons-container" id="socialButtonsContainer">
+    <a href="https://www.facebook.com/share/1ATGtWdcEq/" target="_blank" class="social-sidebar facebook" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/punepanjarpoltrust?igsh=MXY4bmR2cnd2ajhuaQ==" target="_blank" class="social-sidebar instagram" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/channel/UCVQvVUUyKscxYt8Ynn_zbLA" target="_blank" class="social-sidebar youtube" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
   <header>
     <div class="header-content">
       <div class="title-row">
@@ -74,6 +92,7 @@
           <a href="#about"><span class="nav-icon">👤</span> <span data-i18n="nav_about">About Us</span></a>
           <a href="#mission"><span class="nav-icon">🎯</span> <span data-i18n="nav_mission">Our Mission</span></a>
           <a href="#gallery"><span class="nav-icon">🖼️</span> <span data-i18n="nav_gallery">Gallery</span></a>
+          <a href="#video-story"><span class="nav-icon">🎥</span> <span data-i18n="nav_video_story">Watch Our Story</span></a>
           <a href="#products"><span class="nav-icon">🛒</span> <span data-i18n="nav_products">Products for Sale</span></a>
           <a href="#gau-chalisha"><span class="nav-icon">🐮</span> <span data-i18n="nav_gau_chalisha">Gau Chalisa</span></a>
           <a href="cow-blessings.html"><span class="nav-icon">🐄</span> <span data-i18n="nav_cow_blessings">Cow Blessings</span></a>
@@ -98,16 +117,55 @@
   <main>
     <section id="about">
       <h2 data-i18n="about_title">About Us</h2>
-      <p data-i18n="about_text">The Pune Panjarpole Trust, established in 1855, is a sanctuary for over 2,200 cattle. 
-                                Located in Bhosari, the Trust provides shelter, food, and medical care to abandoned 
-                                and aging cattle. Our mission is to create a compassionate environment where every 
-                                animal is treated with dignity and respect. We are committed to sustainable cattle 
-                                farming and community welfare, blending tradition with modern care.</p>
+      <div data-i18n="about_text" style="white-space: pre-line;">Panjarpol Poona Trust is a beacon of compassion nestled in the heart of Pune, Maharashtra. Founded in 1855, our Trust has been dedicated to the welfare, protection, and rehabilitation of cows and other animals in distress.
+
+From humble beginnings with just a handful of cattle, we have grown into a sprawling sanctuary that today shelters over 2,200+ cows and other animals, providing them with love, safety, and care.
+
+Our mission transcends animal care — we aim to preserve India's sacred relationship with cows, promote kindness towards all living beings, and educate society about ethical and sustainable living.
+
+Our shelter is maintained by a dedicated team of staff, volunteers, and veterinarians who work tirelessly to ensure every animal receives proper food, medical care, and a life of dignity.
+
+Beyond animal welfare, Panjarpol Poona Trust actively engages in community development, environmental initiatives, and spiritual services, believing that true progress includes compassion for all beings.</div>
     </section>
 
     <section id="mission">
       <h2 data-i18n="mission_title">Our Mission</h2>
-      <p data-i18n="mission_text">To create a sustainable and sacred environment for the welfare of cows and humanity. We strive to promote ethical cattle farming, educate the community, and inspire compassion for all living beings. Our trust is dedicated to providing lifelong care, medical support, and a loving home for every animal in need.</p>
+      <div data-i18n="mission_text" style="white-space: pre-line;">Our mission is rooted in the timeless values of Ahimsa (non-violence), Seva (selfless service), and Karuna (compassion). At Panjarpol Poona Trust, we strive to:
+
+Rescue and Shelter: Save animals from slaughterhouses, abandonment, and abuse, offering them refuge and lifelong care.
+
+Medical Care: Provide regular health checkups, emergency treatments, and specialized veterinary care for sick, injured, or aging animals.
+
+Sustainable Living: Promote organic farming, cow-based products like Panchgavya, and sustainable environmental practices.
+
+Education & Awareness: Conduct workshops, school visits, and community programs to educate people about animal welfare, cow protection, and ecological balance.
+
+Spiritual Connection: Uphold and spread the spiritual significance of the cow in Indian culture through Gau Seva, Gau Puja, and religious ceremonies.
+
+Community Welfare: Support local communities with employment opportunities, vocational training, and charitable activities during festivals or crises.
+
+Every life matters. Our mission is to ensure that no animal suffers due to neglect, cruelty, or ignorance — and to build a world where compassion guides human actions.</div>
+    </section>
+
+    <section id="statistics" class="statistics-section">
+      <h2 data-i18n="statistics_title">Our Impact</h2>
+      <div class="statistics-grid">
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-cow stat-icon"></i>
+          <div class="stat-number" data-target="2200">0+</div>
+          <div class="stat-label" data-i18n="stat_cattles_sheltered">Cattles Sheltered</div>
+        </div>
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-hand-holding-heart stat-icon"></i>
+          <div class="stat-number" data-target="1000">0+</div>
+          <div class="stat-label" data-i18n="stat_cattles_rescued">Cattles Rescued</div>
+        </div>
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-users stat-icon"></i>
+          <div class="stat-number" data-target="70">0+</div>
+          <div class="stat-label" data-i18n="stat_volunteers">Volunteers</div>
+        </div>
+      </div>
     </section>
 
     <section id="testimonials">
@@ -158,6 +216,20 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
+      </div>
+    </section>
+
+    <section id="video-story" class="video-story-section">
+      <h2 class="section-title" data-i18n="video_story_title">Watch Our Story</h2>
+      <p class="video-description" data-i18n="video_story_description">See how Panjarpol Poona Trust is transforming lives and nurturing compassion through our dedicated services for animals and the community.</p>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/Uk69-zIGGuY" 
+          title="Panjarpol Poona Trust Story" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
     </section>
 
@@ -779,10 +851,74 @@ ${name}`;
       if (formBtn) formBtn.href = 'https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog';
     })();
 
+    // Statistics count-up animation
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16); // 60fps
+      
+      function updateCounter() {
+        start += increment;
+        if (start < target) {
+          element.textContent = Math.floor(start) + '+';
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target + '+';
+        }
+      }
+      
+      updateCounter();
+    }
+
+    // Intersection Observer for statistics animation
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const statisticsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statBlocks = entry.target.querySelectorAll('.stat-number');
+          statBlocks.forEach((block, index) => {
+            const target = parseInt(block.getAttribute('data-target'));
+            setTimeout(() => {
+              animateCounter(block, target);
+            }, index * 300); // Stagger the animations
+          });
+          statisticsObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe the statistics section
+    const statisticsSection = document.getElementById('statistics');
+    if (statisticsSection) {
+      statisticsObserver.observe(statisticsSection);
+    }
+
     // Set a sessionStorage flag to indicate the user has visited a page in this session
     (function() {
       sessionStorage.setItem('hasVisitedAnyPage', 'true');
     })();
+
+    // Social Media Toggle Functionality
+    const socialToggleBtn = document.getElementById('socialToggleBtn');
+    const socialButtonsContainer = document.getElementById('socialButtonsContainer');
+    
+    if (socialToggleBtn && socialButtonsContainer) {
+      socialToggleBtn.addEventListener('click', function() {
+        socialButtonsContainer.classList.toggle('show');
+        socialToggleBtn.classList.toggle('active');
+      });
+      
+      // Close social buttons when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!socialToggleBtn.contains(event.target) && !socialButtonsContainer.contains(event.target)) {
+          socialButtonsContainer.classList.remove('show');
+          socialToggleBtn.classList.remove('active');
+        }
+      });
+    }
   </script>
 </body>
 </html>
