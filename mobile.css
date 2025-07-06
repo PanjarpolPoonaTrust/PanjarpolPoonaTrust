@@ -104,7 +104,7 @@
     left: -100%;
     width: 85%;
     max-width: 300px;
-    height: 100vh;
+    height: calc(var(--real-vh, 1vh) * 100);
     background: #fff5d7;
     padding: 60px 0 20px;
     transition: left 0.3s ease;
@@ -122,14 +122,14 @@
   .main-nav a {
     display: flex;
     align-items: center;
-    padding: 18px 24px;
+    padding: 1.1em 1.5em;
     color: #7a4a00;
     text-decoration: none;
     border-bottom: 1px solid rgba(122, 74, 0, 0.1);
     transition: background-color 0.3s ease;
-    font-size: 16px;
+    font-size: 1.1em;
     font-weight: 500;
-    min-height: 60px;
+    min-height: 2.8em;
     width: 100%;
     box-sizing: border-box;
   }
@@ -145,8 +145,8 @@
 
   .nav-icon {
     font-size: 1.4em;
-    margin-right: 18px;
-    width: 28px;
+    margin-right: 1em;
+    width: 1.7em;
     text-align: center;
     flex-shrink: 0;
   }
