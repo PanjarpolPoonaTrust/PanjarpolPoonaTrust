@@ -210,6 +210,8 @@
     windowEl.classList.toggle('closed');
     if (!windowEl.classList.contains('closed')) {
       if (callNowBtn) callNowBtn.style.display = 'none';
+      const socialToggleBtn = document.getElementById('socialToggleBtn');
+      if (socialToggleBtn) socialToggleBtn.style.display = 'none';
       chatPopup.style.display = 'none';
       setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 100);
       if (!langChosen) {
@@ -222,6 +224,8 @@
       }
     } else {
       if (callNowBtn) callNowBtn.style.display = '';
+      const socialToggleBtn = document.getElementById('socialToggleBtn');
+      if (socialToggleBtn) socialToggleBtn.style.display = '';
       chatPopup.style.display = 'block';
     }
   });
