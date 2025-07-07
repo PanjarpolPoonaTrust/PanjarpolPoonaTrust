@@ -19,21 +19,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    .products-table td {
-      color: #000000 !important;  /* Pure black color with !important */
-      font-weight: normal !important;
-    }
-    .products-table td[data-i18n] {
-      color: #000000 !important;  /* Pure black color with !important */
-      font-weight: normal !important;
-    }
-    .products-table td:first-child {
-      color: #000000 !important;  /* Black color for serial numbers */
-      font-weight: normal !important;
-    }
-  </style>
 </head>
 <body>
   <!-- Fade-in overlay -->
@@ -117,7 +102,7 @@
   <main>
     <section id="about">
       <h2 data-i18n="about_title">About Us</h2>
-      <div data-i18n="about_text" style="white-space: pre-line;">Panjarpol Poona Trust is a beacon of compassion nestled in the heart of Pune, Maharashtra. Founded in 1855, our Trust has been dedicated to the welfare, protection, and rehabilitation of cows and other animals in distress.
+      <div data-i18n="about_text" style="white-space: pre-line;">Poona Panjarpole Trust is a beacon of compassion nestled in the heart of Pune, Maharashtra. Founded in 1855, our Trust has been dedicated to the welfare, protection, and rehabilitation of cows and other animals in distress.
 
 From humble beginnings with just a handful of cattle, we have grown into a sprawling sanctuary that today shelters over 2,200+ cows and other animals, providing them with love, safety, and care.
 
@@ -125,7 +110,7 @@ Our mission transcends animal care — we aim to preserve India's sacred relatio
 
 Our shelter is maintained by a dedicated team of staff, volunteers, and veterinarians who work tirelessly to ensure every animal receives proper food, medical care, and a life of dignity.
 
-Beyond animal welfare, Panjarpol Poona Trust actively engages in community development, environmental initiatives, and spiritual services, believing that true progress includes compassion for all beings.</div>
+Beyond animal welfare, Poona Panjarpole Trust actively engages in community development, environmental initiatives, and spiritual services, believing that true progress includes compassion for all beings.</div>
     </section>
 
     <section id="mission">
@@ -450,23 +435,53 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
 
   <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">↑</button>
 
-  <footer>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/share/1ATGtWdcEq/" target="_blank" class="social-link" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-        <span>Facebook</span>
-      </a>
-      <a href="https://www.instagram.com/punepanjarpoltrust?igsh=MXY4bmR2cnd2ajhuaQ==" target="_blank" class="social-link" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.youtube.com/channel/UCVQvVUUyKscxYt8Ynn_zbLA" target="_blank" class="social-link" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-        <span>YouTube</span>
-      </a>
+  <!-- Redesigned Footer Start -->
+  <footer class="site-footer compact-footer mt-5 pt-3 pb-0" style="background:#fff8e1 !important;color:#6b3e00 !important;">
+    <div class="container px-2 px-md-3">
+      <div class="footer-equal-cols py-2">
+        <!-- About Us -->
+        <div class="footer-col">
+          <h5 class="footer-title mb-2" data-i18n="footer_about_title">About Us</h5>
+          <p class="footer-about-text mb-0 text-center text-md-left" data-i18n="footer_about_text">Poona Panjarpole Trust is dedicated to the welfare and protection of cows, providing shelter, rescue, and care.</p>
+        </div>
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5 class="footer-title mb-2" data-i18n="footer_quick_links_title">Quick Links</h5>
+          <ul class="footer-links list-unstyled mb-0 text-center text-md-left">
+            <li class="mb-1"><a href="#" class="footer-link" data-i18n="footer_link_home">Home</a></li>
+            <li class="mb-1"><a href="#about" class="footer-link" data-i18n="footer_link_about">About Us</a></li>
+            <li class="mb-1"><a href="#gallery" class="footer-link" data-i18n="footer_link_gallery">Gallery</a></li>
+            <li class="mb-1"><a href="#donate" class="footer-link" data-i18n="footer_link_donate">Donate</a></li>
+            <li><a href="#contact" class="footer-link" data-i18n="footer_link_contact">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Contact Info -->
+        <div class="footer-col">
+          <h5 class="footer-title mb-2" data-i18n="footer_contact_title">Contact Info</h5>
+          <ul class="footer-contact list-unstyled mb-0 text-center text-md-left">
+            <li class="mb-1"><i class="fas fa-map-marker-alt mr-2"></i> <span data-i18n="footer_contact_address">Pune-Nashik Highway, Bhosari, Pune – 411039</span></li>
+            <li class="mb-1"><i class="fas fa-phone mr-2"></i> <span data-i18n="footer_contact_phone">8999158881</span></li>
+            <li><i class="fas fa-envelope mr-2"></i> <a href="mailto:punepanjarpoltrust1855@gmail.com" class="footer-link" data-i18n="footer_contact_email">punepanjarpoltrust1855@gmail.com</a></li>
+          </ul>
+        </div>
+        <!-- Follow Us -->
+        <div class="footer-col">
+          <h5 class="footer-title mb-2" data-i18n="footer_follow_title">Follow Us</h5>
+          <div class="footer-social-links d-flex align-items-center justify-content-md-start justify-content-center w-100">
+            <a href="https://www.facebook.com/share/1ATGtWdcEq/" target="_blank" class="footer-social-icon mr-2" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/punepanjarpoltrust?igsh=MXY4bmR2cnd2ajhuaQ==" target="_blank" class="footer-social-icon mr-2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UCVQvVUUyKscxYt8Ynn_zbLA" target="_blank" class="footer-social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <p data-i18n="footer">© 2025 Poona Panjarpole Trust. All Rights Reserved.</p>
+    <div class="footer-bottom-bar py-2">
+      <div class="container px-2 px-md-3 text-center">
+        <span class="footer-copyright" data-i18n="footer_copyright">© 2025 POONA PANJARPOLE TRUST. All Rights Reserved.</span>
+      </div>
+    </div>
   </footer>
+  <!-- Redesigned Footer End -->
 
   <!-- Chatbot Widget -->
   <div id="narayan-chatbot">
