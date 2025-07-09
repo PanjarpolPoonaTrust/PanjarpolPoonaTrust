@@ -684,6 +684,21 @@
     width: 100%;
     margin: 0.5em 0;
   }
+  .main-nav.active ~ .donate-popup,
+  .main-nav.active ~ #donate-popup {
+    display: none !important;
+  }
+  #donate-popup, .donate-popup {
+    left: auto !important;
+    right: 10px !important;
+    top: 30% !important;
+    min-width: 180px;
+    max-width: 90vw;
+    z-index: 900 !important;
+  }
+  .main-nav {
+    z-index: 1000 !important;
+  }
 }
 
 /* Additional adjustments for very small screens */
