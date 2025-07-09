@@ -635,6 +635,55 @@
   .main-nav:not(.active) ~ .donate-sidebar {
     pointer-events: auto;
   }
+
+  #donate-learnmore-blur {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,251,230,0.92);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+  }
+  #donate-learnmore-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fffbe6;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+    padding: 1.2em 0.7em 1.2em 0.7em;
+    max-width: 98vw;
+    width: 98vw;
+    min-width: 0;
+    z-index: 2100;
+    overflow-y: auto;
+    max-height: 90vh;
+    font-size: 1em;
+  }
+  #donate-learnmore-modal h2 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+  }
+  #donate-learnmore-modal button#donate-learnmore-close {
+    top: 6px;
+    right: 10px;
+    font-size: 1.3em;
+  }
+  #donate-learnmore-content {
+    font-size: 0.98em;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  #donate-learnmore-modal table {
+    font-size: 0.95em;
+    width: 100%;
+    margin: 0.5em 0;
+  }
 }
 
 /* Additional adjustments for very small screens */
