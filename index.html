@@ -28,6 +28,14 @@
 
   
   <a href="#" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
+  <div id="donate-popup" class="donate-popup" style="display:none;">
+    <span>Do you know,<br>You can save tax by claiming deductions on donations made to registered NGOs. <a id="donate-learn-more" href="#" style="color:#b8860b;text-decoration:underline;">Learn more</a></span>
+  </div>
+  <div id="donate-learnmore-blur" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,251,230,0.85);backdrop-filter:blur(6px);z-index:2000;"></div>
+  <div id="donate-learnmore-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fffbe6;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.18);padding:2em 1.5em;max-width:95vw;width:480px;z-index:2100;overflow-y:auto;max-height:90vh;">
+    <button id="donate-learnmore-close" style="position:absolute;top:12px;right:18px;font-size:1.7em;background:none;border:none;color:#b8860b;cursor:pointer;">&times;</button>
+    <div id="donate-learnmore-content" style="font-size:1.08em;color:#4b2e00;line-height:1.6;"></div>
+  </div>
   <a href="#" class="callnow-sidebar" id="callNowBtn"><img src="media/telephone.png" alt="Call Now" style="width:96px;height:96px;object-fit:contain;display:block;margin:0 auto;"> </a>
   
   <!-- Social Media Toggle Button -->
@@ -81,7 +89,7 @@
           <a href="#products"><span class="nav-icon">🛒</span> <span data-i18n="nav_products">Products for Sale</span></a>
           <a href="#gau-chalisha"><span class="nav-icon">🐮</span> <span data-i18n="nav_gau_chalisha">Gau Chalisa</span></a>
           <a href="cow-blessings.html"><span class="nav-icon">🐄</span> <span data-i18n="nav_cow_blessings">Cow Blessings</span></a>
-          <a href="#donate"><span class="nav-icon">💝</span> <span data-i18n="nav_support">Support Us</span></a>
+          <a href="#donate"><span class="nav-icon">��</span> <span data-i18n="nav_support">Support Us</span></a>
           <a href="#volunteer"><span class="nav-icon">🤝</span> <span data-i18n="nav_volunteer">Volunteer</span></a>
           <a href="#contact"><span class="nav-icon">📞</span> <span data-i18n="nav_contact">Contact Us</span></a>
           <a href="#satellite_view"><span class="nav-icon">🌐</span> <span data-i18n="nav_satellite">3D Satellite View</span></a>
@@ -508,6 +516,7 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
   <script src="js/chatgpt-service.js"></script>
   <script src="chatbot.js"></script>
   <script src="quotes.js"></script>
+  <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var switcher = document.getElementById('languageSwitcher');
@@ -941,6 +950,7 @@ ${name}`;
     window.addEventListener('resize', setRealVh);
     setRealVh();
   </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
