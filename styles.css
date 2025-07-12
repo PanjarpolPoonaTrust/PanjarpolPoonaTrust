@@ -2442,3 +2442,85 @@ iframe {
     padding: 8px 10px;
   }
 }
+
+/* My Seva Journey Card Slider Styles */
+.my-seva-journey-slider {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 1.5em auto;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-seva-journey-card {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: #fffbe6;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  padding: 2em 1.5em 1.2em 1.5em;
+  min-width: 270px;
+  max-width: 100%;
+  min-height: 120px;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
+.my-seva-journey-card.active {
+  display: flex;
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 0.7s;
+}
+.my-seva-journey-card p {
+  font-size: 1.1em;
+  color: #6b3e00;
+  margin-bottom: 0.7em;
+  text-align: center;
+}
+.my-seva-journey-card span {
+  font-size: 1em;
+  color: #b8860b;
+  font-weight: 600;
+  text-align: center;
+}
+.my-seva-journey-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 0.5em;
+}
+.my-seva-journey-nav button {
+  background: #ffd98c;
+  color: #6b3e00;
+  border: 1.5px solid #b8860b;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.my-seva-journey-nav button:hover {
+  background: #ffcc66;
+  color: #4b2e00;
+}
+@media (max-width: 600px) {
+  .my-seva-journey-slider {
+    max-width: 98vw;
+    min-height: 140px;
+  }
+  .my-seva-journey-card {
+    padding: 1.2em 0.7em 1em 0.7em;
+    min-width: 0;
+    font-size: 0.98em;
+  }
+}
