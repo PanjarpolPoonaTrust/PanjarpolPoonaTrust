@@ -2414,8 +2414,8 @@ iframe {
 
 .donate-popup {
   position: fixed;
-  left: 110px;
-  top: 40%;
+  left:5px;
+  top: 33%;
   background-color: #fff;
   padding: 10px 15px;
   border-radius: 8px;
