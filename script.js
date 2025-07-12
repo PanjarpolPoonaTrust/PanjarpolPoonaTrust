@@ -64,6 +64,108 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('chat-message').value = '';
   }
 
+  // Donate Modal Logic for both sidebar and main donate buttons
+  (function() {
+    const donateBtn = document.getElementById('donate-modal-btn');
+    const donateSidebarBtn = document.querySelector('.donate-sidebar');
+    const modal = document.getElementById('donate-modal');
+    const blur = document.getElementById('donate-modal-blur');
+    const closeBtn = document.getElementById('donate-modal-close');
+    const tabUPI = document.getElementById('donate-tab-upi');
+    const tabNet = document.getElementById('donate-tab-netbanking');
+    const contentUPI = document.getElementById('donate-content-upi');
+    const contentNet = document.getElementById('donate-content-netbanking');
+    const formBtn = document.getElementById('donate-modal-form-btn');
+    const amountStep = document.getElementById('donate-amount-step');
+    const paymentStep = document.getElementById('donate-payment-step');
+    const backBtn = document.getElementById('back-to-amount');
+
+    function openModal(e) {
+      if (e) e.preventDefault();
+      modal.style.display = 'block';
+      blur.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      // Always start at amount step
+      amountStep.classList.add('active');
+      paymentStep.classList.remove('active');
+    }
+    function closeModal() {
+      modal.style.display = 'none';
+      blur.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    if (donateBtn) donateBtn.onclick = openModal;
+    if (donateSidebarBtn) donateSidebarBtn.onclick = openModal;
+    if (closeBtn) closeBtn.onclick = closeModal;
+    if (blur) blur.onclick = closeModal;
+    // Tab switching
+    if (tabUPI && tabNet && contentUPI && contentNet) {
+      tabUPI.onclick = function() {
+        tabUPI.classList.add('active');
+        tabNet.classList.remove('active');
+        contentUPI.classList.add('active');
+        contentNet.classList.remove('active');
+      };
+      tabNet.onclick = function() {
+        tabNet.classList.add('active');
+        tabUPI.classList.remove('active');
+        contentNet.classList.add('active');
+        contentUPI.classList.remove('active');
+      };
+    }
+    // Form button (replace # with your form link)
+    if (formBtn) formBtn.href = 'https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog';
+
+    // Amount selection logic
+    const amountPresets = document.querySelectorAll('.amount-preset');
+    const customAmountInput = document.getElementById('custom-amount-input');
+    const proceedBtn = document.getElementById('proceed-to-payment');
+    const displayAmount = document.getElementById('display-amount');
+
+    let selectedAmount = 0;
+
+    // Amount preset selection
+    amountPresets.forEach(button => {
+      button.addEventListener('click', function() {
+        amountPresets.forEach(p => p.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedAmount = parseInt(this.getAttribute('data-amount'));
+        customAmountInput.value = '';
+        displayAmount.textContent = `₹${selectedAmount}`;
+        proceedBtn.disabled = false;
+      });
+    });
+
+    // Custom amount input
+    customAmountInput.addEventListener('input', function() {
+      const value = parseInt(this.value) || 0;
+      selectedAmount = value;
+      if (value > 0) {
+        amountPresets.forEach(p => p.classList.remove('selected'));
+        displayAmount.textContent = `₹${selectedAmount}`;
+        proceedBtn.disabled = false;
+      } else {
+        displayAmount.textContent = '₹0';
+        proceedBtn.disabled = true;
+      }
+    });
+
+    // Proceed to payment
+    proceedBtn.addEventListener('click', function() {
+      if (selectedAmount > 0) {
+        amountStep.classList.remove('active');
+        paymentStep.classList.add('active');
+        displayAmount.textContent = `₹${selectedAmount}`;
+      }
+    });
+
+    // Back to amount selection
+    backBtn.addEventListener('click', function() {
+      paymentStep.classList.remove('active');
+      amountStep.classList.add('active');
+    });
+  })();
+
   // Donate popup logic
   const donateSidebar = document.querySelector('.donate-sidebar');
   const donatePopup = document.getElementById('donate-popup');
