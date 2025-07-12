@@ -161,4 +161,56 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('donate-learnmore-blur').style.display = 'none';
     document.getElementById('donate-learnmore-modal').style.display = 'none';
   });
+
+  // My Seva Journey Card Slider Logic
+  const sevaCards = document.querySelectorAll('.my-seva-journey-card');
+  const prevBtn = document.getElementById('sevaPrevBtn');
+  const nextBtn = document.getElementById('sevaNextBtn');
+  let sevaCurrent = 0;
+  let sevaInterval;
+
+  function showSevaCard(idx) {
+    sevaCards.forEach((card, i) => {
+      card.classList.toggle('active', i === idx);
+    });
+  }
+
+  function nextSevaCard() {
+    sevaCurrent = (sevaCurrent + 1) % sevaCards.length;
+    showSevaCard(sevaCurrent);
+  }
+
+  function prevSevaCard() {
+    sevaCurrent = (sevaCurrent - 1 + sevaCards.length) % sevaCards.length;
+    showSevaCard(sevaCurrent);
+  }
+
+  function startSevaAutoScroll() {
+    sevaInterval = setInterval(nextSevaCard, 4000);
+  }
+
+  function stopSevaAutoScroll() {
+    clearInterval(sevaInterval);
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSevaCard();
+      stopSevaAutoScroll();
+      startSevaAutoScroll();
+    });
+    nextBtn.addEventListener('click', () => {
+      nextSevaCard();
+      stopSevaAutoScroll();
+      startSevaAutoScroll();
+    });
+  }
+
+  const sevaSlider = document.querySelector('.my-seva-journey-slider');
+  if (sevaSlider) {
+    sevaSlider.addEventListener('mouseenter', stopSevaAutoScroll);
+    sevaSlider.addEventListener('mouseleave', startSevaAutoScroll);
+    showSevaCard(sevaCurrent);
+    startSevaAutoScroll();
+  }
 });
