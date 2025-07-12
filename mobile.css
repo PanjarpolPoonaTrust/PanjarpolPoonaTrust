@@ -699,6 +699,42 @@
   .main-nav {
     z-index: 1000 !important;
   }
+
+  /* My Seva Journey Card Slider - Mobile Styles */
+  .my-seva-journey-slider {
+    max-width: 95vw;
+    min-height: 150px;
+    margin: 0 auto 1em auto;
+  }
+  
+  .my-seva-journey-card {
+    padding: 1.5em 1em 1em 1em;
+    min-width: 0;
+    font-size: 0.95em;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .my-seva-journey-card p {
+    font-size: 1em;
+    line-height: 1.4;
+    margin-bottom: 0.6em;
+  }
+  
+  .my-seva-journey-card span {
+    font-size: 0.9em;
+  }
+  
+  .my-seva-journey-nav {
+    gap: 1em;
+    margin-top: 0.8em;
+  }
+  
+  .my-seva-journey-nav button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2em;
+  }
 }
 
 /* Additional adjustments for very small screens */
@@ -756,6 +792,32 @@
 
   .fadein-namaste {
     font-size: 1.8rem;
+  }
+
+  /* My Seva Journey Card Slider - Small Mobile Styles */
+  .my-seva-journey-slider {
+    max-width: 98vw;
+    min-height: 130px;
+  }
+  
+  .my-seva-journey-card {
+    padding: 1.2em 0.8em 0.8em 0.8em;
+    font-size: 0.9em;
+  }
+  
+  .my-seva-journey-card p {
+    font-size: 0.95em;
+    line-height: 1.3;
+  }
+  
+  .my-seva-journey-card span {
+    font-size: 0.85em;
+  }
+  
+  .my-seva-journey-nav button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1em;
   }
 
   #narayan-chatbot-window {
