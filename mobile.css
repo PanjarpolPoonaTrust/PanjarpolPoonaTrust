@@ -735,6 +735,72 @@
     height: 36px;
     font-size: 1.2em;
   }
+
+  /* Donate Modal Amount Selection - Mobile Styles */
+  .amount-presets {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6em;
+    margin-bottom: 1.2em;
+  }
+  
+  .amount-preset {
+    padding: 0.7em 0.4em;
+    font-size: 0.95em;
+    border-radius: 6px;
+  }
+  
+  .custom-amount {
+    margin-bottom: 1.2em;
+  }
+  
+  .custom-amount label {
+    font-size: 0.9em;
+    margin-bottom: 0.4em;
+  }
+  
+  .custom-amount input {
+    padding: 0.7em;
+    font-size: 0.95em;
+  }
+  
+  .proceed-btn {
+    padding: 0.7em 1.2em;
+    font-size: 1em;
+  }
+  
+  .payment-header {
+    flex-direction: column;
+    gap: 0.6em;
+    text-align: center;
+    margin-bottom: 1.2em;
+  }
+  
+  .back-btn {
+    align-self: flex-start;
+    font-size: 0.9em;
+    padding: 0.4em;
+  }
+  
+  .selected-amount {
+    font-size: 1em;
+  }
+
+  /* QR Code Container - Mobile Styles */
+  #qr-code-container {
+    min-height: 160px;
+    padding: 0.6em;
+    margin: 0.8em 0;
+  }
+  
+  #qr-code-container canvas {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  
+  #qr-code-container:empty::before {
+    height: 160px;
+    font-size: 0.9em;
+  }
 }
 
 /* Additional adjustments for very small screens */
