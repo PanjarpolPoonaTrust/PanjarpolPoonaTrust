@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -180,6 +182,95 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
       <div class="my-seva-journey-nav">
         <button id="sevaPrevBtn" aria-label="Previous testimonial">&#8592;</button>
         <button id="sevaNextBtn" aria-label="Next testimonial">&#8594;</button>
+      </div>
+    </section>
+
+    <!-- Trustee Testimonials Section -->
+    <section id="trustee-testimonials" class="trustee-testimonials-section">
+      <h2 class="section-title">🌟 What Our Trustees Say</h2>
+      <div class="trustee-carousel-container">
+        <div class="swiper trustee-swiper">
+          <div class="swiper-wrapper">
+            <!-- Trustee 1 -->
+            <div class="swiper-slide">
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img src="https://via.placeholder.com/120x120/f0f0f0/6b3e00?text=NS" alt="Mr. Nandlal Sharma">
+                </div>
+                <div class="trustee-content">
+                  <h3 class="trustee-name">Mr. Nandlal Sharma</h3>
+                  <p class="trustee-subtitle">Senior Trustee</p>
+                  <blockquote class="trustee-quote">
+                    "Serving at Poona Panjarpole Trust has been the most fulfilling experience of my life. The dedication of our team and the love we receive from these gentle creatures reminds us daily of our sacred duty to protect and care for them."
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trustee 2 -->
+            <div class="swiper-slide">
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img src="https://via.placeholder.com/120x120/f0f0f0/6b3e00?text=GJ" alt="Mrs. Geetanjali Joshi">
+                </div>
+                <div class="trustee-content">
+                  <h3 class="trustee-name">Mrs. Geetanjali Joshi</h3>
+                  <p class="trustee-subtitle">Trustee & Animal Welfare Coordinator</p>
+                  <blockquote class="trustee-quote">
+                    "Every morning when I see our cows being fed and cared for, I feel blessed. This trust is not just about animal welfare—it's about preserving our cultural heritage and teaching compassion to future generations."
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trustee 3 -->
+            <div class="swiper-slide">
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img src="https://via.placeholder.com/120x120/f0f0f0/6b3e00?text=AB" alt="Shri Arun Bafna">
+                </div>
+                <div class="trustee-content">
+                  <h3 class="trustee-name">Shri Arun Bafna</h3>
+                  <p class="trustee-subtitle">Trustee & Financial Advisor</p>
+                  <blockquote class="trustee-quote">
+                    "The financial support we receive from generous donors enables us to provide the best care for over 2,200 animals. Every rupee donated goes directly towards their food, medical care, and shelter maintenance."
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trustee 4 -->
+            <div class="swiper-slide">
+              <div class="trustee-card">
+                <div class="trustee-image">
+                  <img src="https://via.placeholder.com/120x120/f0f0f0/6b3e00?text=MK" alt="Dr. Meera Kulkarni">
+                </div>
+                <div class="trustee-content">
+                  <h3 class="trustee-name">Dr. Meera Kulkarni</h3>
+                  <p class="trustee-subtitle">Trustee & Veterinary Advisor</p>
+                  <blockquote class="trustee-quote">
+                    "As a veterinarian, I ensure that every animal receives proper medical attention. The trust's commitment to animal welfare goes beyond basic care—we provide comprehensive health services and rehabilitation programs."
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <div class="trustee-carousel-nav">
+          <button class="trustee-nav-btn trustee-prev" aria-label="Previous testimonial">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="trustee-progress">
+            <span class="trustee-current">1</span>
+            <span class="trustee-separator">/</span>
+            <span class="trustee-total">4</span>
+          </div>
+          <button class="trustee-nav-btn trustee-next" aria-label="Next testimonial">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -549,6 +640,8 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
 
   <script src="lang.js"></script>
   <script src="js/chatgpt-service.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="chatbot.js"></script>
   <script src="quotes.js"></script>
   <script src="script.js"></script>
@@ -1061,6 +1154,44 @@ ${name}`;
     }
     window.addEventListener('resize', setRealVh);
     setRealVh();
+
+    // Initialize Trustee Testimonials Swiper
+    const trusteeSwiper = new Swiper('.trustee-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: false,
+      navigation: {
+        nextEl: '.trustee-next',
+        prevEl: '.trustee-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        }
+      },
+      on: {
+        slideChange: function () {
+          const currentSlide = this.realIndex + 1;
+          const totalSlides = this.slides.length;
+          document.querySelector('.trustee-current').textContent = currentSlide;
+          document.querySelector('.trustee-total').textContent = totalSlides;
+        }
+      }
+    });
+
+    // Update progress counter on initialization
+    document.querySelector('.trustee-current').textContent = '1';
+    document.querySelector('.trustee-total').textContent = '4';
   </script>
   <script src="script.js"></script>
 </body>
