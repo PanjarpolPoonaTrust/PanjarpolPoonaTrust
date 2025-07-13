@@ -539,6 +539,12 @@ if (socialToggleBtn && socialButtonsContainer) {
     }
   });
 }
+
+function setRealVh() {
+  document.documentElement.style.setProperty('--real-vh', window.innerHeight * 0.01 + 'px');
+}
+window.addEventListener('resize', setRealVh);
+setRealVh();
 </script>
 <script src="script.js"></script>
 </body>
