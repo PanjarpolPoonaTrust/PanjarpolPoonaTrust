@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <div id="site-fadein-overlay">
@@ -218,7 +219,7 @@
       <div class="donate-modal-tab" id="donate-tab-netbanking">Netbanking</div>
     </div>
     <div class="donate-modal-content donate-modal-upi active" id="donate-content-upi">
-      <img src="media/qr-code_final.jpg" alt="UPI QR Code for Donation" />
+      <div id="qr-code-container" style="display:flex;justify-content:center;align-items:center;margin-bottom:1em;"></div>
       <div style="font-size:1.1em;margin-bottom:0.5em;">UPI ID: <b>Mswipe.1400041924000711@kotak</b></div>
       <div style="font-size:0.95em;color:#b8860b;">Scan the QR code or use the UPI ID in your payment app.</div>
     </div>
@@ -505,6 +506,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const contentUPI = document.getElementById('donate-content-upi');
   const contentNet = document.getElementById('donate-content-netbanking');
   const formBtn = document.getElementById('donate-modal-form-btn');
+  const qrCodeContainer = document.getElementById('qr-code-container');
+  const amountStep = document.getElementById('donate-amount-step');
+  const paymentStep = document.getElementById('donate-payment-step');
+  const backBtn = document.getElementById('back-to-amount');
 
   function openModal(e) {
     if (e) e.preventDefault();
@@ -538,6 +543,89 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   // Form button (replace # with your form link)
   if (formBtn) formBtn.href = 'https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog';
+
+  // QR Code Generation
+  function generateQRCode(amount) {
+    if (!qrCodeContainer) return;
+    qrCodeContainer.innerHTML = '';
+    if (!amount || isNaN(amount) || amount <= 0) return; // Prevent invalid QR
+    const upiUrl = `upi://pay?pa=Mswipe.1400041924000711@kotak&pn=Poona%20Panjarpole%20Trust&am=${amount}&cu=INR`;
+    new QRCode(qrCodeContainer, {
+      text: upiUrl,
+      width: 200,
+      height: 200,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
+
+  // Amount selection logic
+  const amountPresets = document.querySelectorAll('.amount-preset');
+  const customAmountInput = document.getElementById('custom-amount-input');
+  const proceedBtn = document.getElementById('proceed-to-payment');
+  const displayAmount = document.getElementById('display-amount');
+
+  let selectedAmount = 0;
+
+  // Amount preset selection
+  amountPresets.forEach(button => {
+    button.addEventListener('click', function() {
+      amountPresets.forEach(p => p.classList.remove('selected'));
+      this.classList.add('selected');
+      selectedAmount = parseInt(this.getAttribute('data-amount'));
+      customAmountInput.value = '';
+      displayAmount.textContent = `₹${selectedAmount}`;
+      proceedBtn.disabled = false;
+      // If already on payment step, update QR
+      if (paymentStep.classList.contains('active')) {
+        generateQRCode(selectedAmount);
+      }
+    });
+  });
+
+  // Custom amount input
+  customAmountInput.addEventListener('input', function() {
+    const value = parseInt(this.value) || 0;
+    selectedAmount = value;
+    if (value > 0) {
+      amountPresets.forEach(p => p.classList.remove('selected'));
+      displayAmount.textContent = `₹${selectedAmount}`;
+      proceedBtn.disabled = false;
+      if (paymentStep.classList.contains('active')) {
+        generateQRCode(selectedAmount);
+      }
+    } else {
+      displayAmount.textContent = '₹0';
+      proceedBtn.disabled = true;
+      if (paymentStep.classList.contains('active')) {
+        qrCodeContainer.innerHTML = '';
+      }
+    }
+  });
+
+  // Proceed to payment
+  proceedBtn.addEventListener('click', function() {
+    if (selectedAmount > 0) {
+      amountStep.classList.remove('active');
+      paymentStep.classList.add('active');
+      displayAmount.textContent = `₹${selectedAmount}`;
+      generateQRCode(selectedAmount); // Only generate QR code here!
+    }
+  });
+
+  // Back to amount selection
+  backBtn.addEventListener('click', function() {
+    paymentStep.classList.remove('active');
+    amountStep.classList.add('active');
+    qrCodeContainer.innerHTML = ''; // Clear QR code when going back
+  });
+
+  // Initial QR code generation for default amount (e.g., 100)
+  const defaultAmount = amountPresets[0].getAttribute('data-amount');
+  displayAmount.textContent = `₹${defaultAmount}`;
+  generateQRCode(defaultAmount);
+  proceedBtn.disabled = false;
 })();
 
 // Redirect to home page if this is the first page in the session
