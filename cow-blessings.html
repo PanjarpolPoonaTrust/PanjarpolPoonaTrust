@@ -28,7 +28,7 @@
   </div>
   <a href="#" class="donate-sidebar" data-i18n="donate_now">Donate Now</a>
   <div id="donate-popup" class="donate-popup" style="display:none;">
-    <span>Do you know,<br>You can save tax by claiming deductions on donations made to registered NGOs. <a id="donate-learn-more" href="#" style="color:#b8860b;text-decoration:underline;">Learn more</a></span>
+    <span data-i18n="donate_popup_text">Do you know,<br>You can save tax by claiming deductions on donations made to registered NGOs. <a id="donate-learn-more" href="#" style="color:#b8860b;text-decoration:underline;">Learn more</a></span>
   </div>
   <a href="#" class="callnow-sidebar" id="callNowBtn"><img src="media/telephone.png" alt="Call Now" style="width:96px;height:96px;object-fit:contain;display:block;margin:0 auto;"> </a>
 
@@ -224,27 +224,54 @@
 <!-- Modal Window -->
 <div id="donate-modal">
   <button class="close-btn" id="donate-modal-close" title="Close">&times;</button>
-  <div class="donate-modal-tabs">
-    <div class="donate-modal-tab active" id="donate-tab-upi">UPI</div>
-    <div class="donate-modal-tab" id="donate-tab-netbanking">Netbanking</div>
-  </div>
-  <div class="donate-modal-content donate-modal-upi active" id="donate-content-upi">
-    <img src="media/qr-code_final.jpg" alt="UPI QR Code for Donation" />
-    <div style="font-size:1.1em;margin-bottom:0.5em;">UPI ID: <b>Mswipe.1400041924000711@kotak</b></div>
-    <div style="font-size:0.95em;color:#b8860b;">Scan the QR code or use the UPI ID in your payment app.</div>
-  </div>
-  <div class="donate-modal-content donate-modal-netbanking" id="donate-content-netbanking">
-    <div style="font-size:1.1em;margin-bottom:0.5em;"><b>Bank Details:</b></div>
-    <div style="text-align:left;display:inline-block;line-height:1.7;font-size:1em;">
-      <b>Account Name:</b> Poona Panjarpole Trust<br>
-      <b>Bank Name:</b> DCB Bank<br>
-      <b>Branch:</b> DP Road Pune<br>
-      <b>A/C No:</b> 01413600000125<br>
-      <b>IFSC:</b> DCBL0000014<br>
-      <b>UPI ID:</b> Mswipe.1400041924000711@kotak
+  
+  <!-- Step 1: Amount Selection -->
+  <div id="donate-amount-step" class="donate-step active">
+    <h3 style="text-align:center;margin-bottom:1.5em;color:#6b3e00;font-size:1.3em;">Choose Your Donation Amount</h3>
+    <div class="amount-presets">
+      <button class="amount-preset" data-amount="100">₹100</button>
+      <button class="amount-preset" data-amount="500">₹500</button>
+      <button class="amount-preset" data-amount="1000">₹1,000</button>
+      <button class="amount-preset" data-amount="2000">₹2,000</button>
+      <button class="amount-preset" data-amount="5000">₹5,000</button>
+      <button class="amount-preset" data-amount="10000">₹10,000</button>
     </div>
+    <div class="custom-amount">
+      <label for="custom-amount-input">Or enter custom amount:</label>
+      <input type="number" id="custom-amount-input" placeholder="Enter amount in ₹" min="1" step="1">
+    </div>
+    <button id="proceed-to-payment" class="proceed-btn" disabled>Proceed to Payment</button>
   </div>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog" id="donate-modal-form-btn" class="donate-modal-form-btn" data-i18n="donate_form_btn" target="_blank" style="margin-top:0.7em;background:linear-gradient(135deg,#ffd98c 0%,#ffcc66 100%);color:#6b3e00;border:2px solid #b8860b;border-radius:8px;padding:0.4em 1.2em;font-size:0.98em;font-weight:600;cursor:pointer;transition:background 0.2s;display:inline-block;">Fill this form after the payment for receipt</a>
+  
+  <!-- Step 2: Payment Options -->
+  <div id="donate-payment-step" class="donate-step">
+    <div class="payment-header">
+      <button id="back-to-amount" class="back-btn">← Back</button>
+      <h3 style="text-align:center;margin:0;color:#6b3e00;font-size:1.3em;">Payment Options</h3>
+      <div class="selected-amount">Amount: <span id="display-amount">₹0</span></div>
+    </div>
+    <div class="donate-modal-tabs">
+      <div class="donate-modal-tab active" id="donate-tab-upi">UPI</div>
+      <div class="donate-modal-tab" id="donate-tab-netbanking">Netbanking</div>
+    </div>
+    <div class="donate-modal-content donate-modal-upi active" id="donate-content-upi">
+      <img src="media/qr-code_final.jpg" alt="UPI QR Code for Donation" />
+      <div style="font-size:1.1em;margin-bottom:0.5em;">UPI ID: <b>Mswipe.1400041924000711@kotak</b></div>
+      <div style="font-size:0.95em;color:#b8860b;">Scan the QR code or use the UPI ID in your payment app.</div>
+    </div>
+    <div class="donate-modal-content donate-modal-netbanking" id="donate-content-netbanking">
+      <div style="font-size:1.1em;margin-bottom:0.5em;"><b>Bank Details:</b></div>
+      <div style="text-align:left;display:inline-block;line-height:1.7;font-size:1em;">
+        <b>Account Name:</b> Poona Panjarpole Trust<br>
+        <b>Bank Name:</b> DCB Bank<br>
+        <b>Branch:</b> DP Road Pune<br>
+        <b>A/C No:</b> 01413600000125<br>
+        <b>IFSC:</b> DCBL0000014<br>
+        <b>UPI ID:</b> Mswipe.1400041924000711@kotak
+      </div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScegVommazp9BBatggeCktJk1xtMdp4V2xGyKK85eTjnSOXaQ/viewform?usp=dialog" id="donate-modal-form-btn" class="donate-modal-form-btn" data-i18n="donate_form_btn" target="_blank" style="margin-top:0.7em;background:linear-gradient(135deg,#ffd98c 0%,#ffcc66 100%);color:#6b3e00;border:2px solid #b8860b;border-radius:8px;padding:0.4em 1.2em;font-size:0.98em;font-weight:600;cursor:pointer;transition:background 0.2s;display:inline-block;">Fill this form after the payment for receipt</a>
+  </div>
 </div>
 
 <!-- Donate Modal Logic for both sidebar and main donate buttons -->
