@@ -28,6 +28,7 @@ function applyTranslations() {
     }
   });
 }
+window.applyTranslations = applyTranslations;
 
 // Initialize language switcher on DOM load
 // Only set to English by default, do not use localStorage
