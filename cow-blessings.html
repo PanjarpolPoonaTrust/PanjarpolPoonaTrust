@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <div id="donate-learnmore-blur" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,251,230,0.85);backdrop-filter:blur(6px);z-index:9999 !important;"></div>
@@ -255,7 +256,7 @@
       <div class="donate-modal-tab" id="donate-tab-netbanking">Netbanking</div>
     </div>
     <div class="donate-modal-content donate-modal-upi active" id="donate-content-upi">
-      <img src="media/qr-code_final.jpg" alt="UPI QR Code for Donation" />
+      <div id="qr-code-container" style="display:flex;justify-content:center;align-items:center;margin-bottom:1em;"></div>
       <div style="font-size:1.1em;margin-bottom:0.5em;">UPI ID: <b>Mswipe.1400041924000711@kotak</b></div>
       <div style="font-size:0.95em;color:#b8860b;">Scan the QR code or use the UPI ID in your payment app.</div>
     </div>
@@ -483,5 +484,90 @@
 })();
 </script>
 <script src="script.js"></script>
+
+<script>
+// Insert after donate modal logic
+(function() {
+  const qrCodeContainer = document.getElementById('qr-code-container');
+  const amountPresets = document.querySelectorAll('.amount-preset');
+  const customAmountInput = document.getElementById('custom-amount-input');
+  const proceedBtn = document.getElementById('proceed-to-payment');
+  const displayAmount = document.getElementById('display-amount');
+  const amountStep = document.getElementById('donate-amount-step');
+  const paymentStep = document.getElementById('donate-payment-step');
+  const backBtn = document.getElementById('back-to-amount');
+
+  let selectedAmount = 0;
+
+  function generateQRCode(amount) {
+    if (!qrCodeContainer) return;
+    qrCodeContainer.innerHTML = '';
+    if (!amount || isNaN(amount) || amount <= 0) return;
+    const upiUrl = `upi://pay?pa=Mswipe.1400041924000711@kotak&pn=Poona%20Panjarpole%20Trust&am=${amount}&cu=INR`;
+    new QRCode(qrCodeContainer, {
+      text: upiUrl,
+      width: 200,
+      height: 200,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
+
+  amountPresets.forEach(button => {
+    button.addEventListener('click', function() {
+      amountPresets.forEach(p => p.classList.remove('selected'));
+      this.classList.add('selected');
+      selectedAmount = parseInt(this.getAttribute('data-amount'));
+      customAmountInput.value = '';
+      displayAmount.textContent = `₹${selectedAmount}`;
+      proceedBtn.disabled = false;
+      if (paymentStep.classList.contains('active')) {
+        generateQRCode(selectedAmount);
+      }
+    });
+  });
+
+  customAmountInput.addEventListener('input', function() {
+    const value = parseInt(this.value) || 0;
+    selectedAmount = value;
+    if (value > 0) {
+      amountPresets.forEach(p => p.classList.remove('selected'));
+      displayAmount.textContent = `₹${selectedAmount}`;
+      proceedBtn.disabled = false;
+      if (paymentStep.classList.contains('active')) {
+        generateQRCode(selectedAmount);
+      }
+    } else {
+      displayAmount.textContent = '₹0';
+      proceedBtn.disabled = true;
+      if (paymentStep.classList.contains('active')) {
+        qrCodeContainer.innerHTML = '';
+      }
+    }
+  });
+
+  proceedBtn.addEventListener('click', function() {
+    if (selectedAmount > 0) {
+      amountStep.classList.remove('active');
+      paymentStep.classList.add('active');
+      displayAmount.textContent = `₹${selectedAmount}`;
+      generateQRCode(selectedAmount);
+    }
+  });
+
+  backBtn.addEventListener('click', function() {
+    paymentStep.classList.remove('active');
+    amountStep.classList.add('active');
+    qrCodeContainer.innerHTML = '';
+  });
+
+  // Initial QR code for default amount
+  const defaultAmount = amountPresets[0].getAttribute('data-amount');
+  displayAmount.textContent = `₹${defaultAmount}`;
+  generateQRCode(defaultAmount);
+  proceedBtn.disabled = false;
+})();
+</script>
 </body>
 </html>
