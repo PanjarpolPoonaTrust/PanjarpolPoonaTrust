@@ -172,6 +172,25 @@ document.addEventListener("DOMContentLoaded", function () {
   let popupVisible = false;
   let popupTimeout;
 
+  // Function to update donate popup text and re-attach event
+  function updateDonatePopupText() {
+    const popupSpan = donatePopup.querySelector('[data-i18n="donate_popup_text"]');
+    if (popupSpan && typeof currentTranslations === 'object' && currentTranslations['donate_popup_text']) {
+      popupSpan.innerHTML = currentTranslations['donate_popup_text'];
+    }
+    // Re-attach the Learn more link handler
+    const learnMore = donatePopup.querySelector('#donate-learn-more');
+    if (learnMore) {
+      learnMore.onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('donate-learnmore-blur').style.display = 'block';
+        document.getElementById('donate-learnmore-modal').style.display = 'block';
+        var content = (typeof currentTranslations === 'object' && currentTranslations['donate_learnmore_content']) ? currentTranslations['donate_learnmore_content'] : '';
+        document.getElementById('donate-learnmore-content').innerHTML = content;
+      };
+    }
+  }
+
   function toggleDonatePopup() {
     if (popupVisible) {
       donatePopup.style.display = 'none';
@@ -200,6 +219,16 @@ document.addEventListener("DOMContentLoaded", function () {
       popupTimeout = setTimeout(toggleDonatePopup, 1000);
     });
   });
+
+  // Initial update and on language change
+  updateDonatePopupText();
+  if (window.applyTranslations) {
+    const origApplyTranslations = window.applyTranslations;
+    window.applyTranslations = function() {
+      origApplyTranslations();
+      updateDonatePopupText();
+    };
+  }
 
   // Learn more link handler (show modal with content)
   document.getElementById('donate-learn-more').addEventListener('click', function(e) {
