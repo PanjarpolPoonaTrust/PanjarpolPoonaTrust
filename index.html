@@ -1215,7 +1215,45 @@ ${name}`;
     document.querySelector('.trustee-current').textContent = '1';
     document.querySelector('.trustee-total').textContent = '4';
   </script>
-  <script src="script.js"></script>
+  <script>
+// Block common dev tools shortcuts and disable right-click
+(function() {
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Block F12, Ctrl+Shift+I/J/C, Ctrl+U, Cmd+Opt+I (Mac)
+  document.addEventListener('keydown', function(e) {
+    // F12
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+    // Ctrl+Shift+I/J/C/U
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+      e.preventDefault();
+      return false;
+    }
+    // Ctrl+U
+    if ((e.ctrlKey || e.metaKey) && e.key === 'U') {
+      e.preventDefault();
+      return false;
+    }
+    // Cmd+Opt+I (Mac)
+    if (e.metaKey && e.altKey && e.key.toUpperCase() === 'I') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Optional: Warn if user tries to leave (deterrent, not a block)
+  window.addEventListener('beforeunload', function (e) {
+    e.returnValue = '';
+  });
+})();
+</script>
+<!-- Block dev tools script end -->
 </body>
 </html>
 
