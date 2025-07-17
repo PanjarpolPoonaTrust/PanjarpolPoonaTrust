@@ -29,10 +29,11 @@ body {
 
 .statistics-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  max-width: 1000px;
+  justify-content: center;
   margin: 0 auto;
+  max-width: unset;
 }
 
 .stat-block {
@@ -2522,6 +2523,17 @@ iframe {
     padding: 1.2em 0.7em 1em 0.7em;
     min-width: 0;
     font-size: 0.98em;
+  }
+  .reviewer-photo {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 0 auto !important;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .my-seva-journey-card.active > div {
+    gap: 8px !important;
   }
 }
 
