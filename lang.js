@@ -3,9 +3,11 @@ let currentTranslations = {};
 // Load the selected language's translations from translations.json
 async function loadTranslations(lang) {
   try {
+    console.log('[lang.js] Loading language:', lang);
     const res = await fetch('translations.json');
     const allTranslations = await res.json();
     currentTranslations = allTranslations[lang] || {};
+    console.log('[lang.js] chatbot_popup for', lang, ':', currentTranslations['chatbot_popup']);
     applyTranslations();
   } catch (error) {
     console.error("Error loading translations:", error);
@@ -35,13 +37,20 @@ window.applyTranslations = applyTranslations;
 // On change, update localStorage and translations
 document.addEventListener('DOMContentLoaded', () => {
   const switcher = document.getElementById('languageSwitcher');
-  if (switcher) switcher.value = 'en';
-  loadTranslations('en');
+  // Use sessionStorage or localStorage for session language, default to 'en' on new session
+  let savedLang = sessionStorage.getItem('selectedLanguage') || localStorage.getItem('selectedLanguage') || 'en';
+  if (switcher) switcher.value = savedLang;
+  loadTranslations(savedLang);
   if (switcher) {
     switcher.addEventListener('change', e => {
       const selectedLang = e.target.value;
+      sessionStorage.setItem('selectedLanguage', selectedLang);
       localStorage.setItem('selectedLanguage', selectedLang);
+      console.log('[lang.js] Language switcher changed to:', selectedLang);
       loadTranslations(selectedLang);
+      setTimeout(() => {
+        console.log('[lang.js] currentTranslations after switch:', window.currentTranslations);
+      }, 500);
     });
   }
 });
