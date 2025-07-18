@@ -432,7 +432,11 @@ footer {
 
 .gallery-image {
   height: 300px;
-  object-fit: cover;
+  max-width: 100%;
+  object-fit: contain;
+  background: #fffbe6;
+  display: block;
+  margin: 0 auto;
 }
 
 iframe {
