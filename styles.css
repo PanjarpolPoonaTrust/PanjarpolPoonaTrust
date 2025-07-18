@@ -3089,3 +3089,57 @@ iframe {
     font-size: 1.1rem;
   }
 }
+
+/* Ensure all volunteer review cards have the same height */
+.my-seva-journey-slider {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.my-seva-journey-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 340px; /* Adjust this value to match the 2nd review's height */
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .my-seva-journey-slider {
+    flex-direction: column;
+  }
+  .my-seva-journey-card {
+    min-height: 0;
+  }
+}
+
+/* Hide chat with naarad popup when hamburger menu is open */
+.main-nav.active ~ #narayan-chatbot .chat-popup {
+  display: none !important;
+}
+
+/* Hamburger menu open: partially show chat with naarad popup like donate now popup */
+.main-nav.active ~ #narayan-chatbot .chat-popup {
+  position: fixed !important;
+  left: 5px !important;
+  top: 55%;
+  right: auto !important;
+  bottom: auto !important;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1100;
+  transform: translateY(0) scale(0.92);
+  max-width: 220px;
+  min-width: 120px;
+  white-space: normal;
+  display: block !important;
+}
+@media (max-width: 600px) {
+  .main-nav.active ~ #narayan-chatbot .chat-popup {
+    left: 70px !important;
+    top: 60%;
+    font-size: 13px;
+    min-width: 100px;
+    max-width: 160px;
+    padding: 8px 10px;
+  }
+}
