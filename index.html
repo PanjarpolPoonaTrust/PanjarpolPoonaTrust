@@ -174,14 +174,15 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
       <div class="my-seva-journey-slider">
         <div class="my-seva-journey-card active">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-            <p style="text-align: center;">Interning at Poona Panjarpol Trust was a heartwarming experience. I learned about animal care, veterinary support, and the importance of compassion in handling rescued and abandoned cattle. It was a journey of empathy, responsibility, and deep respect for all living beings.</p>
-            <span style="font-weight: 600; margin-bottom: 6px;">- Yog Chopada</span>
+            <p style="text-align: center;" data-i18n="my-seva-journey_1">Interning at Poona Panjarpol Trust was a heartwarming experience...</p>
+            <span style="font-weight: 600; margin-bottom: 6px;" data-i18n="my-seva-journey_1_author">- Yog Chopada</span>
             <img src="media/yog-chopada.jpeg" alt="Yog Chopada" class="reviewer-photo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.10); display: block;">
           </div>
         </div>
         <div class="my-seva-journey-card">
-          <p data-i18n="my-seva-journey_2">"Donating to Poona Panjarpole Trust was the best decision. I can see the impact of my contribution."</p>
-          <span data-i18n="my-seva-journey_2_author">- Rajesh, Donor</span>
+          <p data-i18n="my-seva-journey_2">Interning at Poona Panjarpol Trust has been an incredibly enriching experience. I got the opportunity to work closely on building a digital solution that supports the welfare of rescued and abandoned cattle. From developing the website to managing the health tracking database, every task brought me closer to understanding the needs of the cattle and the importance of their care. It was a journey of purpose, compassion, and meaningful contribution.</p>
+          <span data-i18n="my-seva-journey_2_author">– Sarthak Kharche</span>
+          <img src="media/sarthak-kharche.jpg" alt="Sarthak Kharche" class="reviewer-photo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.10); display: block;">
         </div>
         <!-- Add more testimonial cards here if needed -->
       </div>
@@ -255,48 +256,50 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
             </tr>
           </thead>
           <tbody>
+            <!--
             <tr>
               <td data-i18n="s1">1</td>
               <td data-i18n="ghee">Ghee</td>
-              <!-- <td data-i18n="price-ghee">2,000/L</td> -->
+               <td data-i18n="price-ghee">2,000/L</td> 
             </tr>
             <tr>
               <td data-i18n="s2">2</td>
               <td data-i18n="buttermilk">Buttermilk</td>
-              <!-- <td data-i18n="price-buttermilk">20/L</td> -->
+               <td data-i18n="price-buttermilk">20/L</td>
             </tr>
+            -->
             <tr>
-              <td data-i18n="s3">3</td>
+              <td data-i18n="s1">1</td>
               <td data-i18n="biological-letter(jaivik-khat)">Biological Letter (Jaivik Khat)</td>
               <!-- <td data-i18n="price-biological-letter">20/Kg</td> -->
             </tr>
             <tr>
-              <td data-i18n="s4">4</td>
+              <td data-i18n="s2">2</td>
               <td data-i18n="vermi-compost(gandul-khat)">Vermi Compost (Gandul Khat)</td>
               <!-- <td data-i18n="price-vermi-compost">25/Kg</td> -->
             </tr>
             <tr>
-              <td data-i18n="s5">5</td>
+              <td data-i18n="s3">3</td>
               <td data-i18n="vermiwash(vermi-wash)">Vermiwash</td>
               <!-- <td data-i18n="price-vermiwash">60/L</td> -->
             </tr>
             <tr>
-              <td data-i18n="s6">6</td>
+              <td data-i18n="s4">4</td>
               <td data-i18n="dashparni-ark">Disharine Extract (Darshparni Ark)</td>
               <!-- <td data-i18n="price-dashparni-ark">120/L</td> -->
             </tr>
             <tr>
-              <td data-i18n="s7">7</td>
+              <td data-i18n="s5">5</td>
               <td data-i18n="gomutra">Gomutra</td>
               <!-- <td data-i18n="price-gomutra">30/L</td> -->
             </tr>
             <tr>
-              <td data-i18n="s8">8</td>
+              <td data-i18n="s6">6</td>
               <td data-i18n="gokrupamrit">Gokrupamrit</td>
               <!-- <td data-i18n="price-gokrupamrit">30/L</td> -->
             </tr>
             <tr>
-              <td data-i18n="s9">9</td>
+              <td data-i18n="s7">7</td>
               <td data-i18n="cow-dung-cake">Cow Dung Cake</td>
               <!-- <td data-i18n="price-cow-dung-cake">5/Piece</td> -->
             </tr>
@@ -549,7 +552,7 @@ Every life matters. Our mission is to ensure that no animal suffers due to negle
     </div>
     <div class="chat-popup">Chat with NAARAD</div>
   </div>
-
+  
   <!-- Modal for desktop call info -->
   <div id="callNowModal" class="callnow-modal" style="display:none;">
     <div class="callnow-modal-content">
@@ -1123,44 +1126,5 @@ ${name}`;
     document.querySelector('.trustee-current').textContent = '1';
     document.querySelector('.trustee-total').textContent = '4';
   </script>
-  <script>
-// Block common dev tools shortcuts and disable right-click
-(function() {
-  // Disable right-click context menu
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  // Block F12, Ctrl+Shift+I/J/C, Ctrl+U, Cmd+Opt+I (Mac)
-  document.addEventListener('keydown', function(e) {
-    // F12
-    if (e.key === 'F12') {
-      e.preventDefault();
-      return false;
-    }
-    // Ctrl+Shift+I/J/C/U
-    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
-      e.preventDefault();
-      return false;
-    }
-    // Ctrl+U
-    if ((e.ctrlKey || e.metaKey) && e.key === 'U') {
-      e.preventDefault();
-      return false;
-    }
-    // Cmd+Opt+I (Mac)
-    if (e.metaKey && e.altKey && e.key.toUpperCase() === 'I') {
-      e.preventDefault();
-      return false;
-    }
-  });
-
-  // Optional: Warn if user tries to leave (deterrent, not a block)
-  window.addEventListener('beforeunload', function (e) {
-    e.returnValue = '';
-  });
-})();
-</script>
-<!-- Block dev tools script end -->
 </body>
 </html>
