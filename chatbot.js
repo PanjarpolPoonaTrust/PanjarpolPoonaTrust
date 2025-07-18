@@ -309,50 +309,14 @@
     };
   }
 
-  // Chatbot popup show/hide cycle
-  let popupVisible = true;
-  let popupTimer = null;
-  let popupCycleActive = true;
-
-  function showChatPopup() {
-    if (chatPopup) {
-      chatPopup.style.display = 'block';
-      popupVisible = true;
-    }
-  }
-  function hideChatPopup() {
-    if (chatPopup) {
-      chatPopup.style.display = 'none';
-      popupVisible = false;
-    }
-  }
-  function startPopupCycle() {
-    if (!chatPopup) return;
-    popupCycleActive = true;
-    function cycle() {
-      if (!popupCycleActive) return;
-      showChatPopup();
-      popupTimer = setTimeout(() => {
-        hideChatPopup();
-        popupTimer = setTimeout(() => {
-          cycle();
-        }, 5000);
-      }, 5000);
-    }
-    cycle();
-  }
-  function stopPopupCycle() {
-    popupCycleActive = false;
-    if (popupTimer) clearTimeout(popupTimer);
-  }
+  // Remove popup show/hide cycle, always show popup unless chat window is open
   if (chatPopup) {
+    chatPopup.style.display = 'block';
     chatPopup.addEventListener('mouseenter', () => {
-      stopPopupCycle();
-      showChatPopup();
+      chatPopup.style.display = 'block';
     });
     chatPopup.addEventListener('mouseleave', () => {
-      startPopupCycle();
+      chatPopup.style.display = 'block';
     });
-    startPopupCycle();
   }
 })(); 
