@@ -344,4 +344,49 @@ document.addEventListener("DOMContentLoaded", function () {
     showSevaCard(sevaCurrent);
     startSevaAutoScroll();
   }
+
+  // Volunteer Reviews Auto-Switch Logic
+  (function() {
+    const slider = document.querySelector('.my-seva-journey-slider');
+    if (!slider) return;
+    const cards = slider.querySelectorAll('.my-seva-journey-card');
+    const prevBtn = document.getElementById('sevaPrevBtn');
+    const nextBtn = document.getElementById('sevaNextBtn');
+    let current = 0;
+    let timer = null;
+
+    function showCard(idx) {
+      cards.forEach((card, i) => {
+        card.classList.toggle('active', i === idx);
+      });
+      current = idx;
+    }
+
+    function nextCard() {
+      showCard((current + 1) % cards.length);
+      resetTimer();
+    }
+
+    function prevCard() {
+      showCard((current - 1 + cards.length) % cards.length);
+      resetTimer();
+    }
+
+    function resetTimer() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(nextCard, 8000);
+    }
+
+    // Initial setup
+    showCard(0);
+    resetTimer();
+
+    // Manual navigation
+    if (nextBtn) nextBtn.addEventListener('click', nextCard);
+    if (prevBtn) prevBtn.addEventListener('click', prevCard);
+
+    // Pause on hover (optional)
+    slider.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+    slider.addEventListener('mouseleave', resetTimer);
+  })();
 });
