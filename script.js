@@ -354,6 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById('sevaNextBtn');
     let current = 0;
     let timer = null;
+    let pauseTimeout = null;
 
     function showCard(idx) {
       cards.forEach((card, i) => {
@@ -372,21 +373,41 @@ document.addEventListener("DOMContentLoaded", function () {
       resetTimer();
     }
 
-    function resetTimer() {
+    function startAutoAdvance() {
       if (timer) clearInterval(timer);
-      timer = setInterval(nextCard, 8000);
+      timer = setInterval(() => {
+        showCard((current + 1) % cards.length);
+      }, 8000);
+    }
+
+    function pauseAutoAdvance() {
+      if (timer) clearInterval(timer);
+      if (pauseTimeout) clearTimeout(pauseTimeout);
+      pauseTimeout = setTimeout(() => {
+        startAutoAdvance();
+      }, 25000); // 25 seconds pause
+    }
+
+    function resetTimer() {
+      pauseAutoAdvance();
     }
 
     // Initial setup
     showCard(0);
-    resetTimer();
+    startAutoAdvance();
 
     // Manual navigation
-    if (nextBtn) nextBtn.addEventListener('click', nextCard);
-    if (prevBtn) prevBtn.addEventListener('click', prevCard);
+    if (nextBtn) nextBtn.addEventListener('click', function() {
+      showCard((current + 1) % cards.length);
+      resetTimer();
+    });
+    if (prevBtn) prevBtn.addEventListener('click', function() {
+      showCard((current - 1 + cards.length) % cards.length);
+      resetTimer();
+    });
 
     // Pause on hover (optional)
-    slider.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
-    slider.addEventListener('mouseleave', resetTimer);
+    slider.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); if (pauseTimeout) clearTimeout(pauseTimeout); });
+    slider.addEventListener('mouseleave', () => { startAutoAdvance(); });
   })();
 });
