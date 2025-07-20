@@ -3147,3 +3147,140 @@ iframe {
     padding: 8px 10px;
   }
 }
+
+/* Volunteer Marquee Styles */
+.volunteer-marquee-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 1.5em auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.volunteer-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.volunteer-marquee-content {
+  display: flex;
+  gap: 2rem;
+  animation: volunteer-marquee-scroll 60s linear infinite;
+  width: max-content;
+}
+
+.volunteer-marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes volunteer-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Update existing my-seva-journey-card styles for marquee */
+.volunteer-marquee .my-seva-journey-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fffbe6;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  padding: 2em 1.5em 1.2em 1.5em;
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 200px;
+  flex-shrink: 0;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.volunteer-marquee .my-seva-journey-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.volunteer-marquee .my-seva-journey-card p {
+  font-size: 1.1em;
+  color: #6b3e00;
+  margin-bottom: 0.7em;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.volunteer-marquee .my-seva-journey-card span {
+  font-size: 1em;
+  color: #b8860b;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.volunteer-marquee .reviewer-photo {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile responsive styles for marquee */
+@media (max-width: 768px) {
+  .volunteer-marquee-container {
+    max-width: 100vw;
+    margin: 0 auto 1em auto;
+  }
+  
+  .volunteer-marquee-content {
+    gap: 1.5rem;
+    animation-duration: 45s;
+  }
+  
+  .volunteer-marquee .my-seva-journey-card {
+    min-width: 280px;
+    max-width: 320px;
+    padding: 1.5em 1em 1em 1em;
+    min-height: 180px;
+  }
+  
+  .volunteer-marquee .my-seva-journey-card p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  
+  .volunteer-marquee .reviewer-photo {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .volunteer-marquee-content {
+    gap: 1rem;
+    animation-duration: 35s;
+  }
+  
+  .volunteer-marquee .my-seva-journey-card {
+    min-width: 260px;
+    max-width: 300px;
+    padding: 1.2em 0.8em 0.8em 0.8em;
+    min-height: 160px;
+  }
+  
+  .volunteer-marquee .my-seva-journey-card p {
+    font-size: 0.95em;
+  }
+  
+  .volunteer-marquee .reviewer-photo {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}
