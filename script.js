@@ -297,3 +297,68 @@ document.addEventListener("DOMContentLoaded", function () {
   // The marquee effect is handled by CSS animations
   // Cards automatically scroll horizontally and pause on hover
 });
+
+// Close hamburger menu on nav link click (mobile)
+document.addEventListener('DOMContentLoaded', function() {
+  var mainNav = document.querySelector('.main-nav');
+  var hamburger = document.querySelector('.hamburger-menu');
+  var navLinks = document.querySelectorAll('.main-nav a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // Only close if menu is open and link is an anchor
+      if (mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        // Allow smooth scroll to section
+      }
+    });
+  });
+});
+
+// Ensure .second-header sticky offset matches header height
+window.addEventListener('DOMContentLoaded', function() {
+  var header = document.querySelector('header');
+  var secondHeader = document.querySelector('.second-header');
+  if (header && secondHeader) {
+    var headerHeight = header.offsetHeight;
+    secondHeader.style.top = headerHeight + 'px';
+  }
+  // Also update on window resize
+  window.addEventListener('resize', function() {
+    if (header && secondHeader) {
+      var headerHeight = header.offsetHeight;
+      secondHeader.style.top = headerHeight + 'px';
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var header = document.querySelector('header');
+  var navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href').slice(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        // Get header height (use offsetHeight for sticky header)
+        var headerHeight = header ? header.offsetHeight : 0;
+        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        // Update active class
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        this.classList.add('active');
+        // Close menu if open (for mobile)
+        var mainNav = document.querySelector('.main-nav');
+        var hamburger = document.querySelector('.hamburger-menu');
+        if (mainNav && mainNav.classList.contains('active')) {
+          mainNav.classList.remove('active');
+          if (hamburger) hamburger.classList.remove('active');
+        }
+      }
+    });
+  });
+});
