@@ -73,6 +73,7 @@
       language: 'Please choose a language: <button class="narayan-lang-btn" data-lang="en">English</button> <button class="narayan-lang-btn" data-lang="hi">हिन्दी</button> <button class="narayan-lang-btn" data-lang="mr">मराठी</button>',
       setlang: 'Language set to: ',
       other: 'Other',
+      notification: '📞 You will get your reply within 24-48 hours',
       questions: [
         {
           q: "What is Poona Panjarpole Trust?",
@@ -101,6 +102,7 @@
       language: 'कृपया भाषा चुनें: <button class="narayan-lang-btn" data-lang="en">English</button> <button class="narayan-lang-btn" data-lang="hi">हिन्दी</button> <button class="narayan-lang-btn" data-lang="mr">मराठी</button>',
       setlang: 'भाषा सेट की गई: ',
       other: 'अन्य',
+      notification: '📞 आपको 24-48 घंटों के भीतर उत्तर मिल जाएगा',
       questions: [
         {
           q: "पूना पंजरपोल ट्रस्ट क्या है?",
@@ -129,6 +131,7 @@
       language: 'कृपया भाषा निवडा: <button class="narayan-lang-btn" data-lang="en">English</button> <button class="narayan-lang-btn" data-lang="hi">हिन्दी</button> <button class="narayan-lang-btn" data-lang="mr">मराठी</button>',
       setlang: 'भाषा सेट केली: ',
       other: 'इतर',
+      notification: '📞 तुम्हाला 24-48 तासांत उत्तर मिळेल',
       questions: [
         {
           q: "पूना पंजरपोल ट्रस्ट म्हणजे काय?",
@@ -270,10 +273,12 @@
   // Listen for 'Other' button click and show input
   document.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('other-btn')) {
+      const currentLang = narayanLang || 'en';
+      const notificationText = botTexts[currentLang].notification;
       const inputHtml = `
         <div class="other-input-container">
           <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; padding: 10px; margin-bottom: 10px; color: #856404; font-size: 0.9em; text-align: center;">
-            📞 You will get your reply within 24-48 hours
+            ${notificationText}
           </div>
           <input type="text" id="other-message" placeholder="Type your message..." style="width: 70%; padding: 0.5em; margin-right: 0.5em;">
           <button id="send-other-btn" style="padding: 0.5em 1em;">Send</button>
