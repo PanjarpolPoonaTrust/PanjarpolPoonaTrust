@@ -272,6 +272,9 @@
     if (e.target && e.target.classList.contains('other-btn')) {
       const inputHtml = `
         <div class="other-input-container">
+          <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; padding: 10px; margin-bottom: 10px; color: #856404; font-size: 0.9em; text-align: center;">
+            📞 You will get your reply within 24-48 hours
+          </div>
           <input type="text" id="other-message" placeholder="Type your message..." style="width: 70%; padding: 0.5em; margin-right: 0.5em;">
           <button id="send-other-btn" style="padding: 0.5em 1em;">Send</button>
         </div>
