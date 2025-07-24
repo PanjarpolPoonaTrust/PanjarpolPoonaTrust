@@ -249,9 +249,15 @@ header {
   margin: 0;
   font-size: 2.1rem;
   color: #6b3e00;
-  text-decoration: underline;
   font-weight: 700;
   letter-spacing: 0.045em;
+  text-decoration: underline;
+}
+
+.fredericka-the-great-regular {
+  font-family: "Fredericka the Great", serif !important;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .elephant-image {
@@ -3321,4 +3327,10 @@ iframe {
 .sky-tooltip-container:focus-within .sky-tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+.rye-regular {
+  font-family: "Rye", serif !important;
+  font-weight: 400;
+  font-style: normal;
 }
