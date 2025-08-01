@@ -2300,8 +2300,15 @@ iframe {
   font-size: 0.97rem;
   display: flex;
   align-items: center;
-  word-break: break-word;
+  word-break: keep-all;
   padding: 1px 0;
+}
+
+/* Keep email address on single line */
+.site-footer.compact-footer .footer-contact li a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .site-footer.compact-footer .footer-contact i {
   color: #6b3e00 !important;
